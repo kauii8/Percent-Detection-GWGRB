@@ -397,10 +397,8 @@ for q in range(0,iterations):
         h_WASH.append(((((Dv_WASH * 2.25 )**2))/((distance[z]) ** 2)))
         h_VIRGO.append(((((Dv_VIRGO * 2.25 )**2))/((distance[z]) ** 2)))
         psi.append(random.uniform(0,math.pi * 2))
-        GBMtheta.append(4.39822971502571)
-        GBMphi.append(4.39822971502571)
-        #GBMtheta.append(random.uniform(1.9823131728623847, math.pi))
-        #GBMphi.append(((14 * math.pi)/5) / (-math.cos(GBMtheta[z]) + 1))
+        GBMtheta.append(random.uniform(1.9823131728623847, math.pi))
+        GBMphi.append(((14 * math.pi)/5) / (-math.cos(GBMtheta[z]) + 1))
         SWIFTtheta.append(random.uniform(math.pi/2, math.pi))
         SWIFTphi.append((2*math.pi) / (-math.cos(SWIFTtheta[z]) + 1))
         thetaobs.append(2 * math.asin(math.sin(theta[z]) * math.sin(psi[z]/2)))#Fermi Observation angle set, a tetrehedron trig
