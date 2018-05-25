@@ -539,7 +539,7 @@ for u in range(0,len(thetaobs)):
     thetaobs[u] = math.degrees(thetaobs[u])
 off_axis_graph = plt.plot(thetaobs,fluence_off, label = 'Off Axis')
 ax = plt.subplot(111)
-plt.title(r'$\theta_{obs}$' +' vs Fluence at 450c Mpc')
+plt.title(r'$\theta_{obs}$' +' vs Fluence at 450 Mpc')
 plt.xlabel(r'$\theta_{obs}$' + '[deg]')
 plt.ylabel('Fluence (100Mpc / d)'+r'$^2$'+' [erg/'+'cm' + r'$^2$' + '] ')
 plt.yscale('log')

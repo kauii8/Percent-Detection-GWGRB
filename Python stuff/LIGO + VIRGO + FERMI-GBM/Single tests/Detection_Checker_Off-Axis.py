@@ -126,7 +126,7 @@ for q in range(0,iterations):
             '''------OFF AXIS------'''
 
             deltaobs = (gamma * (1 - beta * math.cos(math.radians(math.degrees(thetaobs[a]) - thetaj))))
-            deltazero = (gamma * (1 - beta * math.cos(math.fabs((math.radians(thetaj))))))
+            deltazero = (gamma * (1 - beta * math.cos(math.fabs((math.radians(0))))))
             eta = (deltazero/deltaobs)
             FOnn = (energyinitial)/(( (4) * math.pi*((((distance[a]) ** 2)))))
             FOff = eta * FOnn * .01
@@ -134,7 +134,7 @@ for q in range(0,iterations):
             fluence.append(FOff)
             fluenceonoff.append(False)
             '''------OFF AXIS------'''            
-        if fluence[a] < (10e-7):
+        if fluence[a] < (2.5e-8):
             GRBTEST.append(False)
         else:
             GRBTEST.append(True)    
