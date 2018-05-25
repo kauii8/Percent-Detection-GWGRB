@@ -1,0 +1,1460 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     61007,       1452]
+NotebookOptionsPosition[     56259,       1302]
+NotebookOutlinePosition[     57885,       1354]
+CellTagsIndexPosition[     57557,       1342]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Antenna Patterns for a Laser Interferometer Gravitational Wave Detector \
+\>", "DemoTitle",
+ CellChangeTimes->{{3.54308125687817*^9, 3.543081364105262*^9}, {
+  3.5431517082740526`*^9, 3.5431517286167135`*^9}, {3.543235357747835*^9, 
+  3.543235395523201*^9}, {3.543253415165697*^9, 3.543253415702751*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hxx", "[", 
+   RowBox[{"\[Theta]_", ",", "\[Phi]_", ",", "hplus_", ",", "hcross_"}], 
+   "]"}], ":=", 
+  RowBox[{
+   RowBox[{"hplus", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], "2"], 
+       SuperscriptBox[
+        RowBox[{"Cos", "[", "\[Phi]", "]"}], "2"]}], "-", 
+      SuperscriptBox[
+       RowBox[{"Sin", "[", "\[Phi]", "]"}], "2"]}], ")"}]}], "+", 
+   RowBox[{"2", " ", "hcross", " ", 
+    RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+    RowBox[{"Sin", "[", "\[Phi]", "]"}], " ", 
+    RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.542986405594384*^9, 3.542986556718157*^9}, {
+  3.542986837549182*^9, 3.5429868434128437`*^9}},
+ CellID->1314466241],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hyy", "[", 
+   RowBox[{"\[Theta]_", ",", "\[Phi]_", ",", "hplus_", ",", "hcross_"}], 
+   "]"}], ":=", 
+  RowBox[{
+   RowBox[{"hplus", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"Cos", "[", "\[Theta]", "]"}], "2"], 
+       SuperscriptBox[
+        RowBox[{"Sin", "[", "\[Phi]", "]"}], "2"]}], "-", 
+      SuperscriptBox[
+       RowBox[{"Cos", "[", "\[Phi]", "]"}], "2"]}], ")"}]}], "-", 
+   RowBox[{"2", " ", "hcross", " ", 
+    RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+    RowBox[{"Sin", "[", "\[Phi]", "]"}], " ", 
+    RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.5429865788240643`*^9, 3.542986603886285*^9}, {
+  3.542986848661076*^9, 3.54298684884613*^9}},
+ CellID->1069835798],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"HFSRgeneral", "[", 
+   RowBox[{"\[Theta]_", ",", "\[Phi]_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     RowBox[{"hxx", "[", 
+      RowBox[{"\[Theta]", ",", "\[Phi]", ",", "hplus", ",", "hcross"}], "]"}],
+      " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], " ", "m", " ", "Pi"}]], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{"m", " ", "Pi"}], "]"}], "+", 
+       RowBox[{"\[ImaginaryI]", " ", "kx", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"m", " ", "Pi"}], "]"}]}], "-", 
+       RowBox[{"\[ImaginaryI]", " ", "kx", " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], " ", "m", " ", "Pi", " ", 
+          "kx"}]]}]}], ")"}]}], 
+    RowBox[{"m", " ", "Pi", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       SuperscriptBox["kx", "2"]}], ")"}]}]], "-", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"hyy", "[", 
+      RowBox[{"\[Theta]", ",", "\[Phi]", ",", "hplus", ",", "hcross"}], "]"}],
+      " ", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], " ", "m", " ", "Pi"}]], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{"m", " ", "Pi"}], "]"}], "+", 
+       RowBox[{"\[ImaginaryI]", " ", "ky", " ", 
+        RowBox[{"Cos", "[", 
+         RowBox[{"m", " ", "Pi"}], "]"}]}], "-", 
+       RowBox[{"\[ImaginaryI]", " ", "ky", " ", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], " ", "m", " ", "Pi", " ", 
+          "ky"}]]}]}], ")"}]}], 
+    RowBox[{"m", " ", "Pi", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       SuperscriptBox["ky", "2"]}], ")"}]}]]}]}]], "Input",
+ CellChangeTimes->{{3.543058126161746*^9, 3.543058169876458*^9}, {
+   3.543058204026602*^9, 3.5430582058571997`*^9}, {3.5430582457953253`*^9, 
+   3.5430583947829027`*^9}, {3.543058432554184*^9, 3.543058464578329*^9}, {
+   3.54306340157972*^9, 3.543063482101543*^9}, {3.543068890227063*^9, 
+   3.543068899933729*^9}, 3.543151602229608*^9},
+ CellID->1997164302],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kx", "=", 
+   RowBox[{
+    RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+    RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.543151564803728*^9},
+ CellID->1256500226],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ky", "=", 
+   RowBox[{
+    RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+    RowBox[{"Sin", "[", "\[Phi]", "]"}]}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.5431515659737434`*^9},
+ CellID->1792597431],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kz", "=", 
+   RowBox[{"Cos", "[", "\[Theta]", "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{3.5431515669409556`*^9},
+ CellID->1136939054]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Grid", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ParametricPlot3D", "[", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Abs", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"HFSRgeneral", "[", 
+                RowBox[{"\[Theta]", ",", "\[Phi]", ",", "m"}], "]"}], "/.", 
+               RowBox[{"hcross", "\[Rule]", "0"}]}], "/.", 
+              RowBox[{"hplus", "\[Rule]", "1"}]}], "]"}], " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Cos", "[", " ", "\[Phi]", "]"}], " ", 
+               RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"Sin", "[", "\[Phi]", "]"}], 
+               RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", " ", 
+              RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "}"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Phi]", ",", " ", "0", ",", " ", 
+             RowBox[{"2", "\[Pi]"}]}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]", ",", " ", "0", ",", " ", "\[Pi]"}], "}"}], 
+           ",", 
+           RowBox[{"PlotPoints", " ", "\[Rule]", " ", "20"}], ",", 
+           RowBox[{"ColorFunctionScaling", "\[Rule]", "False"}], ",", 
+           RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+           RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"280", ",", "220"}], "}"}]}], ",", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<+ polarization\>\"", ",", "16", ",", "Blue"}], 
+             "]"}]}]}], "]"}], ",", 
+         RowBox[{"ParametricPlot3D", "[", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Abs", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"HFSRgeneral", "[", 
+                RowBox[{"\[Theta]", ",", "\[Phi]", ",", "m"}], "]"}], "/.", 
+               RowBox[{"hplus", "\[Rule]", "0"}]}], "/.", 
+              RowBox[{"hcross", "\[Rule]", "1"}]}], "]"}], " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Cos", "[", " ", "\[Phi]", "]"}], " ", 
+               RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"Sin", "[", "\[Phi]", "]"}], 
+               RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", " ", 
+              RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "}"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Phi]", ",", " ", "0", ",", " ", 
+             RowBox[{"2", "\[Pi]"}]}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]", ",", " ", "0", ",", " ", "\[Pi]"}], "}"}], 
+           ",", 
+           RowBox[{"PlotPoints", " ", "\[Rule]", " ", "20"}], ",", 
+           RowBox[{"ColorFunctionScaling", "\[Rule]", "False"}], ",", 
+           RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+           RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"280", ",", "220"}], "}"}]}], ",", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+             "\"\<\[Times] polarization\>\"", ",", "16", ",", "Green"}], 
+             "]"}]}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ParametricPlot3D", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"\[Sqrt]", 
+             RowBox[{"(", 
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"Abs", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"HFSRgeneral", "[", 
+                    RowBox[{"\[Theta]", ",", "\[Phi]", ",", "m"}], "]"}], "/.", 
+                    RowBox[{"hcross", "\[Rule]", "0"}]}], "/.", 
+                   RowBox[{"hplus", "\[Rule]", "1"}]}], "]"}], ")"}], "2"], 
+               "+", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"Abs", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"HFSRgeneral", "[", 
+                    RowBox[{"\[Theta]", ",", "\[Phi]", ",", "m"}], "]"}], "/.", 
+                    RowBox[{"hplus", "\[Rule]", "0"}]}], "/.", 
+                   RowBox[{"hcross", "\[Rule]", "1"}]}], "]"}], " ", ")"}], 
+                "2"]}], ")"}]}], " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Cos", "[", " ", "\[Phi]", "]"}], " ", 
+               RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"Sin", "[", "\[Phi]", "]"}], 
+               RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", " ", 
+              RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "}"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\[Phi]", ",", " ", "0", ",", " ", 
+             RowBox[{"2", "\[Pi]"}]}], "}"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"\[Theta]", ",", " ", "0", ",", " ", "\[Pi]"}], "}"}], 
+           ",", 
+           RowBox[{"PlotPoints", " ", "\[Rule]", " ", "20"}], ",", 
+           RowBox[{"ColorFunctionScaling", "\[Rule]", "False"}], ",", 
+           RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+           RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"280", ",", "220"}], "}"}]}], ",", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<average\>\"", ",", "16", ",", "Red"}], "]"}]}]}], 
+          "]"}], ",", " ", 
+         RowBox[{"Spacer", "[", "10", "]"}]}], "}"}]}], "}"}], ",", 
+     RowBox[{"Spacings", "\[Rule]", "0"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "0.001", ",", "\"\<factor of FSR frequency\>\""}], 
+      "}"}], ",", "0.001", ",", "2"}], "}"}], ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}], ",", "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{"SaveDefinitions", "\[Rule]", " ", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.543076531699121*^9, 3.5430765320139513`*^9}, {
+   3.5430766189658623`*^9, 3.543076643930607*^9}, {3.543076690309476*^9, 
+   3.54307669828959*^9}, {3.543076732223468*^9, 3.543076790170074*^9}, {
+   3.5430768452425013`*^9, 3.543076851613377*^9}, {3.543076963517304*^9, 
+   3.5430770791691217`*^9}, {3.543077134738155*^9, 3.543077189461804*^9}, {
+   3.5430772553260202`*^9, 3.543077283014407*^9}, {3.5430773302333097`*^9, 
+   3.543077339966235*^9}, {3.543077495267015*^9, 3.543077620684361*^9}, {
+   3.543077919651515*^9, 3.543077925094603*^9}, {3.543077985259877*^9, 
+   3.543077985471217*^9}, {3.54307801627855*^9, 3.5430780167495937`*^9}, {
+   3.543078086317897*^9, 3.543078166721855*^9}, {3.543078196934895*^9, 
+   3.5430781999970007`*^9}, {3.543078279430374*^9, 3.543078289786861*^9}, {
+   3.543078468212306*^9, 3.543078468503096*^9}, {3.5430785656680613`*^9, 
+   3.543078566621337*^9}, {3.5431516293125553`*^9, 3.5431516525657387`*^9}, 
+   3.543151985660392*^9, {3.54315299860318*^9, 3.5431530389206257`*^9}, {
+   3.5431531197769804`*^9, 3.5431532149388103`*^9}, {3.543235090110551*^9, 
+   3.543235102415001*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 0.001, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m$$], 0.001, "factor of FSR frequency"}, 0.001, 2}}, 
+    Typeset`size$$ = {560., {219.8544921875, 225.1455078125}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`m$35232$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`m$$ = 0.001}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`m$$, $CellContext`m$35232$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Grid[{{
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hcross -> 0], $CellContext`hplus -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["+ polarization", 16, Blue]], 
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hplus -> 0], $CellContext`hcross -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["\[Times] polarization", 16, Green]]}, {
+          ParametricPlot3D[Sqrt[Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hcross -> 
+                  0], $CellContext`hplus -> 1]]^2 + Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hplus -> 
+                  0], $CellContext`hcross -> 1]]^2] {
+            Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> Style["average", 16, Red]], 
+          Spacer[10]}}, Spacings -> 0], 
+      "Specifications" :> {{{$CellContext`m$$, 0.001, 
+          "factor of FSR frequency"}, 0.001, 2}}, 
+      "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{603., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`HFSRgeneral[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          
+          Blank[]]] := ($CellContext`hxx[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`hplus, $CellContext`hcross] (
+           Sin[$CellContext`m Pi] + (I $CellContext`kx) 
+            Cos[$CellContext`m Pi] - (I $CellContext`kx)/
+           E^(((I $CellContext`m) Pi) $CellContext`kx)))/(
+         E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+           1 - $CellContext`kx^2))) - \
+($CellContext`hyy[$CellContext`\[Theta], $CellContext`\[Phi], \
+$CellContext`hplus, $CellContext`hcross] (
+          Sin[$CellContext`m Pi] + (I $CellContext`ky) 
+           Cos[$CellContext`m Pi] - (I $CellContext`ky)/
+          E^(((I $CellContext`m) Pi) $CellContext`ky)))/(
+        E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+          1 - $CellContext`ky^2))), $CellContext`hxx[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Cos[$CellContext`\[Phi]]^2 - 
+          Sin[$CellContext`\[Phi]]^2) + (((2 $CellContext`hcross) 
+           Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+         Cos[$CellContext`\[Phi]], $CellContext`kx = -0.07970908496814917, \
+$CellContext`hyy[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Sin[$CellContext`\[Phi]]^2 - 
+          Cos[$CellContext`\[Phi]]^2) - (((2 $CellContext`hcross) 
+          Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+        Cos[$CellContext`\[Phi]], $CellContext`ky = 0.31476387404748907`}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1141331035]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell["\<\
+This Demonstration shows how the antenna pattern (intensity variation as a \
+function of angle) of a ground-based laser interferometer gravitational wave \
+detector changes with the frequency of the gravitational wave. You can change \
+the multiplicative factor to the free spectral range (FSR) frequency to see \
+the three-dimensional antenna pattern for plus, cross, and average \
+(root-mean-square) polarizations.\
+\>", "ManipulateCaption",
+ CellChangeTimes->{{3.543078923647848*^9, 3.543079206022462*^9}, {
+   3.54308093043213*^9, 3.543080942853981*^9}, {3.543081707069606*^9, 
+   3.543081764855219*^9}, {3.5431519158364105`*^9, 3.543151938170644*^9}, {
+   3.543153747536021*^9, 3.5431537480800757`*^9}, {3.543233866687001*^9, 
+   3.543233917557337*^9}, {3.543235204593192*^9, 3.543235208387364*^9}, 
+   3.543253434275608*^9, {3.5432534844166217`*^9, 3.543253524027582*^9}, {
+   3.543325807788809*^9, 3.543325816994903*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 0.888, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m$$], 0.888, "factor of FSR frequency"}, 0.001, 2}}, 
+    Typeset`size$$ = {560., {219.8544921875, 225.1455078125}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`m$35281$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`m$$ = 0.888}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`m$$, $CellContext`m$35281$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Grid[{{
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hcross -> 0], $CellContext`hplus -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["+ polarization", 16, Blue]], 
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hplus -> 0], $CellContext`hcross -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["\[Times] polarization", 16, Green]]}, {
+          ParametricPlot3D[Sqrt[Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hcross -> 
+                  0], $CellContext`hplus -> 1]]^2 + Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hplus -> 
+                  0], $CellContext`hcross -> 1]]^2] {
+            Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> Style["average", 16, Red]], 
+          Spacer[10]}}, Spacings -> 0], 
+      "Specifications" :> {{{$CellContext`m$$, 0.888, 
+          "factor of FSR frequency"}, 0.001, 2}}, 
+      "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{603., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`HFSRgeneral[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          
+          Blank[]]] := ($CellContext`hxx[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`hplus, $CellContext`hcross] (
+           Sin[$CellContext`m Pi] + (I $CellContext`kx) 
+            Cos[$CellContext`m Pi] - (I $CellContext`kx)/
+           E^(((I $CellContext`m) Pi) $CellContext`kx)))/(
+         E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+           1 - $CellContext`kx^2))) - \
+($CellContext`hyy[$CellContext`\[Theta], $CellContext`\[Phi], \
+$CellContext`hplus, $CellContext`hcross] (
+          Sin[$CellContext`m Pi] + (I $CellContext`ky) 
+           Cos[$CellContext`m Pi] - (I $CellContext`ky)/
+          E^(((I $CellContext`m) Pi) $CellContext`ky)))/(
+        E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+          1 - $CellContext`ky^2))), $CellContext`hxx[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Cos[$CellContext`\[Phi]]^2 - 
+          Sin[$CellContext`\[Phi]]^2) + (((2 $CellContext`hcross) 
+           Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+         Cos[$CellContext`\[Phi]], $CellContext`kx = -0.07970908496814917, \
+$CellContext`hyy[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Sin[$CellContext`\[Phi]]^2 - 
+          Cos[$CellContext`\[Phi]]^2) - (((2 $CellContext`hcross) 
+          Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+        Cos[$CellContext`\[Phi]], $CellContext`ky = 0.31476387404748907`}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1026770241]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 0.91, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m$$], 0.91, "factor of FSR frequency"}, 0.001, 2}}, 
+    Typeset`size$$ = {560., {219.8544921875, 225.1455078125}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`m$35330$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`m$$ = 0.91}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`m$$, $CellContext`m$35330$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Grid[{{
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hcross -> 0], $CellContext`hplus -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["+ polarization", 16, Blue]], 
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hplus -> 0], $CellContext`hcross -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["\[Times] polarization", 16, Green]]}, {
+          ParametricPlot3D[Sqrt[Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hcross -> 
+                  0], $CellContext`hplus -> 1]]^2 + Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hplus -> 
+                  0], $CellContext`hcross -> 1]]^2] {
+            Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> Style["average", 16, Red]], 
+          Spacer[10]}}, Spacings -> 0], 
+      "Specifications" :> {{{$CellContext`m$$, 0.91, 
+          "factor of FSR frequency"}, 0.001, 2}}, 
+      "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{603., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`HFSRgeneral[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          
+          Blank[]]] := ($CellContext`hxx[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`hplus, $CellContext`hcross] (
+           Sin[$CellContext`m Pi] + (I $CellContext`kx) 
+            Cos[$CellContext`m Pi] - (I $CellContext`kx)/
+           E^(((I $CellContext`m) Pi) $CellContext`kx)))/(
+         E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+           1 - $CellContext`kx^2))) - \
+($CellContext`hyy[$CellContext`\[Theta], $CellContext`\[Phi], \
+$CellContext`hplus, $CellContext`hcross] (
+          Sin[$CellContext`m Pi] + (I $CellContext`ky) 
+           Cos[$CellContext`m Pi] - (I $CellContext`ky)/
+          E^(((I $CellContext`m) Pi) $CellContext`ky)))/(
+        E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+          1 - $CellContext`ky^2))), $CellContext`hxx[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Cos[$CellContext`\[Phi]]^2 - 
+          Sin[$CellContext`\[Phi]]^2) + (((2 $CellContext`hcross) 
+           Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+         Cos[$CellContext`\[Phi]], $CellContext`kx = -0.07970908496814917, \
+$CellContext`hyy[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Sin[$CellContext`\[Phi]]^2 - 
+          Cos[$CellContext`\[Phi]]^2) - (((2 $CellContext`hcross) 
+          Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+        Cos[$CellContext`\[Phi]], $CellContext`ky = 0.31476387404748907`}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1896336842],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 1.282, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m$$], 1.282, "factor of FSR frequency"}, 0.001, 2}}, 
+    Typeset`size$$ = {560., {219.8544921875, 225.1455078125}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`m$35379$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`m$$ = 1.282}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`m$$, $CellContext`m$35379$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Grid[{{
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hcross -> 0], $CellContext`hplus -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["+ polarization", 16, Blue]], 
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hplus -> 0], $CellContext`hcross -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["\[Times] polarization", 16, Green]]}, {
+          ParametricPlot3D[Sqrt[Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hcross -> 
+                  0], $CellContext`hplus -> 1]]^2 + Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hplus -> 
+                  0], $CellContext`hcross -> 1]]^2] {
+            Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> Style["average", 16, Red]], 
+          Spacer[10]}}, Spacings -> 0], 
+      "Specifications" :> {{{$CellContext`m$$, 1.282, 
+          "factor of FSR frequency"}, 0.001, 2}}, 
+      "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{603., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`HFSRgeneral[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          
+          Blank[]]] := ($CellContext`hxx[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`hplus, $CellContext`hcross] (
+           Sin[$CellContext`m Pi] + (I $CellContext`kx) 
+            Cos[$CellContext`m Pi] - (I $CellContext`kx)/
+           E^(((I $CellContext`m) Pi) $CellContext`kx)))/(
+         E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+           1 - $CellContext`kx^2))) - \
+($CellContext`hyy[$CellContext`\[Theta], $CellContext`\[Phi], \
+$CellContext`hplus, $CellContext`hcross] (
+          Sin[$CellContext`m Pi] + (I $CellContext`ky) 
+           Cos[$CellContext`m Pi] - (I $CellContext`ky)/
+          E^(((I $CellContext`m) Pi) $CellContext`ky)))/(
+        E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+          1 - $CellContext`ky^2))), $CellContext`hxx[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Cos[$CellContext`\[Phi]]^2 - 
+          Sin[$CellContext`\[Phi]]^2) + (((2 $CellContext`hcross) 
+           Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+         Cos[$CellContext`\[Phi]], $CellContext`kx = -0.07970908496814917, \
+$CellContext`hyy[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Sin[$CellContext`\[Phi]]^2 - 
+          Cos[$CellContext`\[Phi]]^2) - (((2 $CellContext`hcross) 
+          Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+        Cos[$CellContext`\[Phi]], $CellContext`ky = 0.31476387404748907`}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->928498367],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 2., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m$$], 2., "factor of FSR frequency"}, 0.001, 2}}, 
+    Typeset`size$$ = {560., {219.8544921875, 225.1455078125}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`m$35428$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`m$$ = 2.}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`m$$, $CellContext`m$35428$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Grid[{{
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hcross -> 0], $CellContext`hplus -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["+ polarization", 16, Blue]], 
+          ParametricPlot3D[Abs[
+             ReplaceAll[
+              ReplaceAll[
+               $CellContext`HFSRgeneral[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`m$$], $CellContext`hplus -> 0], $CellContext`hcross -> 
+              1]] {Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> 
+           Style["\[Times] polarization", 16, Green]]}, {
+          ParametricPlot3D[Sqrt[Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hcross -> 
+                  0], $CellContext`hplus -> 1]]^2 + Abs[
+                ReplaceAll[
+                 ReplaceAll[
+                  $CellContext`HFSRgeneral[$CellContext`\[Theta], \
+$CellContext`\[Phi], $CellContext`m$$], $CellContext`hplus -> 
+                  0], $CellContext`hcross -> 1]]^2] {
+            Cos[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Sin[$CellContext`\[Phi]] Sin[$CellContext`\[Theta]], 
+             Cos[$CellContext`\[Theta]]}, {$CellContext`\[Phi], 0, 2 
+            Pi}, {$CellContext`\[Theta], 0, Pi}, PlotPoints -> 20, 
+           ColorFunctionScaling -> False, Boxed -> False, Axes -> False, 
+           ImageSize -> {280, 220}, PlotLabel -> Style["average", 16, Red]], 
+          Spacer[10]}}, Spacings -> 0], 
+      "Specifications" :> {{{$CellContext`m$$, 2., "factor of FSR frequency"},
+          0.001, 2}}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{603., {264., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`HFSRgeneral[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          
+          Blank[]]] := ($CellContext`hxx[$CellContext`\[Theta], $CellContext`\
+\[Phi], $CellContext`hplus, $CellContext`hcross] (
+           Sin[$CellContext`m Pi] + (I $CellContext`kx) 
+            Cos[$CellContext`m Pi] - (I $CellContext`kx)/
+           E^(((I $CellContext`m) Pi) $CellContext`kx)))/(
+         E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+           1 - $CellContext`kx^2))) - \
+($CellContext`hyy[$CellContext`\[Theta], $CellContext`\[Phi], \
+$CellContext`hplus, $CellContext`hcross] (
+          Sin[$CellContext`m Pi] + (I $CellContext`ky) 
+           Cos[$CellContext`m Pi] - (I $CellContext`ky)/
+          E^(((I $CellContext`m) Pi) $CellContext`ky)))/(
+        E^((I $CellContext`m) Pi) (($CellContext`m Pi) (
+          1 - $CellContext`ky^2))), $CellContext`hxx[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Cos[$CellContext`\[Phi]]^2 - 
+          Sin[$CellContext`\[Phi]]^2) + (((2 $CellContext`hcross) 
+           Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+         Cos[$CellContext`\[Phi]], $CellContext`kx = -0.07970908496814917, \
+$CellContext`hyy[
+         Pattern[$CellContext`\[Theta], 
+          Blank[]], 
+         Pattern[$CellContext`\[Phi], 
+          Blank[]], 
+         Pattern[$CellContext`hplus, 
+          Blank[]], 
+         Pattern[$CellContext`hcross, 
+          Blank[]]] := $CellContext`hplus (
+          Cos[$CellContext`\[Theta]]^2 Sin[$CellContext`\[Phi]]^2 - 
+          Cos[$CellContext`\[Phi]]^2) - (((2 $CellContext`hcross) 
+          Cos[$CellContext`\[Theta]]) Sin[$CellContext`\[Phi]]) 
+        Cos[$CellContext`\[Phi]], $CellContext`ky = 0.31476387404748907`}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1655875067]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell["\<\
+The antenna pattern of a laser interferometer ground-based gravitational wave \
+detector (such as LIGO) is often described as the standard \"peanut\"-shaped \
+plot. This pattern is valid only for the long wavelength (low frequency) \
+limit of the gravitational wave. But when the wavelength of the gravitational \
+wave is comparable (higher frequency of gravitational wave) to the length of \
+the Fabry\[Dash]P\[EAcute]rot cavity of the interferometer, then the pattern \
+changes. The first free spectral range frequency for the LIGO detectors is \
+37.5 kHz. Extra nodal directions can appear at high frequency.\
+\>", "DetailNotes",
+ CellChangeTimes->{{3.543079263320795*^9, 3.54307957715913*^9}, {
+   3.543080626634883*^9, 3.543080678685264*^9}, {3.543080768303442*^9, 
+   3.543080796149727*^9}, {3.5430808571617002`*^9, 3.543080894925036*^9}, {
+   3.5430809670690613`*^9, 3.543080969428916*^9}, {3.543081005210747*^9, 
+   3.543081086827042*^9}, {3.5430811199922113`*^9, 3.543081133403286*^9}, {
+   3.543081179301196*^9, 3.54308120999795*^9}, 3.54308158788865*^9, {
+   3.543081630015122*^9, 3.543081673259891*^9}, {3.5432339334189253`*^9, 
+   3.5432339966271477`*^9}, {3.5432533808042617`*^9, 
+   3.5432533889490757`*^9}, {3.5432534371698976`*^9, 
+   3.5432534433225126`*^9}, {3.5432535409616394`*^9, 3.5432535659286394`*^9}, 
+   3.543325842079648*^9},
+ CellID->1871855146],
+
+Cell["References", "DetailNotes",
+ CellChangeTimes->{{3.5432340117424097`*^9, 3.543234014665201*^9}, 
+   3.54323525844534*^9},
+ CellID->986220811],
+
+Cell[TextData[{
+ "[1] M. Rakhmanov, J. D. Romano, and J. T. Whelan, \"High-Frequency \
+Corrections to the Detector Response and Their Effect on Searches for \
+Gravitational Waves,\" ",
+ StyleBox["Classical and Quantum Gravity",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["25",
+  FontWeight->"Bold"],
+ "(18), 2008. ",
+ ButtonBox["iopscience.iop.org/0264-9381/25/18/184017",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://iopscience.iop.org/0264-9381/25/18/184017"], 
+    "http://iopscience.iop.org/0264-9381/25/18/184017"},
+  ButtonNote->"http://iopscience.iop.org/0264-9381/25/18/184017"],
+ "."
+}], "DetailNotes",
+ CellChangeTimes->{{3.543080453002931*^9, 3.543080585897665*^9}, {
+  3.5432340100744143`*^9, 3.543234061256812*^9}, {3.5432340945268497`*^9, 
+  3.543234117942421*^9}, {3.543253605366639*^9, 3.5432536060536394`*^9}, {
+  3.543253655387639*^9, 3.543253661274639*^9}, {3.5432537529856396`*^9, 
+  3.5432537529866395`*^9}, {3.5432538686486397`*^9, 3.5432539298056393`*^9}, {
+  3.5432540385526395`*^9, 3.5432541282716393`*^9}},
+ CellID->2083429962],
+
+Cell[TextData[{
+ "[2] D. Sigg, \"Strain Calibration in LIGO,\" LIGO public DCC T970101. ",
+ ButtonBox["dcc.ligo.org/cgi-bin/DocDB/ShowDocument?docid=28842",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://dcc.ligo.org/cgi-bin/DocDB/ShowDocument?docid=28842"], 
+    "https://dcc.ligo.org/cgi-bin/DocDB/ShowDocument?docid=28842"},
+  ButtonNote->"https://dcc.ligo.org/cgi-bin/DocDB/ShowDocument?docid=28842"],
+ "."
+}], "DetailNotes",
+ CellChangeTimes->{{3.543079930771323*^9, 3.543079961134261*^9}, {
+   3.5430802417105103`*^9, 3.543080292965358*^9}, {3.5430803244366198`*^9, 
+   3.543080330464014*^9}, 3.543080451483605*^9, {3.543234128181859*^9, 
+   3.5432341350293922`*^9}, {3.543253608925639*^9, 3.5432536095736394`*^9}, {
+   3.5432539727766395`*^9, 3.5432540073346395`*^9}},
+ CellID->1405501045],
+
+Cell["", "DetailNotes",
+ CellID->469647628]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.543234152563841*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.543078906493919*^9},
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.543078912204218*^9},
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9, 
+  3.5432341408197927`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.543078914781962*^9},
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["LIGO antenna pattern", "SearchTerms",
+ CellChangeTimes->{{3.543078824743689*^9, 3.5430788371110277`*^9}},
+ CellID->904167918],
+
+Cell["FSR", "SearchTerms",
+ CellChangeTimes->{{3.54307884353959*^9, 3.5430788440226088`*^9}},
+ CellID->755911654],
+
+Cell["LIGO angular response", "SearchTerms",
+ CellChangeTimes->{{3.543078848940884*^9, 3.543078861902811*^9}, {
+  3.5430788931806593`*^9, 3.543078897596778*^9}},
+ CellID->93913126],
+
+Cell["gravitational wave detector ", "SearchTerms",
+ CellChangeTimes->{{3.543079231651333*^9, 3.543079242782103*^9}, 
+   3.5432534494991302`*^9},
+ CellID->2144911784]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Dipole Antenna Radiation Pattern",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/DipoleAntennaRadiationPattern/"], 
+   None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/DipoleAntennaRadiationPattern/"]], \
+"RelatedLinks",
+ CellChangeTimes->{{3.5431536522944984`*^9, 3.5431536522954984`*^9}},
+ CellID->1375845],
+
+Cell[TextData[ButtonBox["Directivity Pattern of Line Arrays",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://demonstrations.wolfram.com/DirectivityPatternOfLineArrays/"], 
+   None},
+ ButtonNote->
+  "http://demonstrations.wolfram.com/DirectivityPatternOfLineArrays/"]], \
+"RelatedLinks",
+ CellChangeTimes->{{3.5431536755098195`*^9, 3.5431536755108194`*^9}},
+ CellID->674622936]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Satya Mohapatra",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Satya+\
+Mohapatra"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Satya+Mohapatra"]
+}], "Author",
+ CellChangeTimes->{{3.543078808260284*^9, 3.543078813686512*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{919, 886},
+WindowMargins->{{131, Automatic}, {Automatic, 38}},
+Magnification->1.,
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 1, \
+2015)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "AutomaticAnimation"->{
+  Cell[51877, 1176, 1505, 32, 29, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[53385, 1210, 908, 21, 29, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]},
+ "CreateAndDeleteLocators"->{
+  Cell[49951, 1123, 637, 15, 29, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "DragLocators"->{
+  Cell[49608, 1110, 340, 11, 29, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "GamepadControls"->{
+  Cell[51479, 1164, 395, 10, 29, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "ResizeImages"->{
+  Cell[48530, 1080, 353, 9, 29, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[48886, 1091, 719, 17, 29, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "SliderZoom"->{
+  Cell[50591, 1140, 885, 22, 29, "ControlSuggestions",
+   CellTags->"SliderZoom"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"AutomaticAnimation", 56663, 1315},
+ {"BookmarkAnimation", 56780, 1318},
+ {"CreateAndDeleteLocators", 56901, 1321},
+ {"DragLocators", 57017, 1324},
+ {"GamepadControls", 57125, 1327},
+ {"ResizeImages", 57233, 1330},
+ {"RotateAndZoomIn3D", 57342, 1333},
+ {"SliderZoom", 57450, 1336}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 314, 5, 108, "DemoTitle"],
+Cell[CellGroupData[{
+Cell[918, 31, 33, 0, 275, "InitializationSection"],
+Cell[954, 33, 797, 22, 30, "Input",
+ CellID->1314466241],
+Cell[1754, 57, 796, 22, 30, "Input",
+ CellID->1069835798],
+Cell[2553, 81, 2198, 58, 105, "Input",
+ CellID->1997164302],
+Cell[4754, 141, 253, 8, 43, "Input",
+ InitializationCell->True,
+ CellID->1256500226],
+Cell[5010, 151, 255, 8, 43, "Input",
+ InitializationCell->True,
+ CellID->1792597431],
+Cell[5268, 161, 198, 6, 43, "Input",
+ InitializationCell->True,
+ CellID->1136939054]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5503, 172, 29, 0, 201, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[5557, 176, 7530, 162, 354, "Input"],
+Cell[13090, 340, 6140, 123, 545, "Output",
+ CellID->1141331035]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19276, 469, 36, 0, 181, "ManipulateCaptionSection"],
+Cell[19315, 471, 938, 14, 71, "ManipulateCaption"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20290, 490, 28, 0, 179, "ThumbnailSection"],
+Cell[20321, 492, 6140, 123, 545, "Output",
+ CellID->1026770241]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26498, 620, 28, 0, 149, "SnapshotsSection"],
+Cell[26529, 622, 6136, 123, 545, "Output",
+ CellID->1896336842],
+Cell[32668, 747, 6139, 123, 545, "Output",
+ CellID->928498367],
+Cell[38810, 872, 6120, 122, 545, "Output",
+ CellID->1655875067]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44967, 999, 26, 0, 357, "DetailsSection"],
+Cell[44996, 1001, 1384, 21, 87, "DetailNotes",
+ CellID->1871855146],
+Cell[46383, 1024, 146, 3, 23, "DetailNotes",
+ CellID->986220811],
+Cell[46532, 1029, 1064, 24, 39, "DetailNotes",
+ CellID->2083429962],
+Cell[47599, 1055, 808, 15, 23, "DetailNotes",
+ CellID->1405501045],
+Cell[48410, 1072, 43, 1, 23, "DetailNotes",
+ CellID->469647628]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48490, 1078, 37, 0, 131, "ControlSuggestionsSection"],
+Cell[48530, 1080, 353, 9, 29, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[48886, 1091, 719, 17, 29, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[49608, 1110, 340, 11, 29, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[49951, 1123, 637, 15, 29, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[50591, 1140, 885, 22, 29, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[51479, 1164, 395, 10, 29, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[51877, 1176, 1505, 32, 29, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[53385, 1210, 908, 21, 29, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54330, 1236, 30, 0, 165, "SearchTermsSection"],
+Cell[54363, 1238, 131, 2, 23, "SearchTerms",
+ CellID->904167918],
+Cell[54497, 1242, 113, 2, 23, "SearchTerms",
+ CellID->755911654],
+Cell[54613, 1246, 180, 3, 23, "SearchTerms",
+ CellID->93913126],
+Cell[54796, 1251, 166, 3, 23, "SearchTerms",
+ CellID->2144911784]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54999, 1259, 31, 0, 149, "RelatedLinksSection"],
+Cell[55033, 1261, 378, 9, 23, "RelatedLinks",
+ CellID->1375845],
+Cell[55414, 1272, 384, 9, 23, "RelatedLinks",
+ CellID->674622936]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55835, 1286, 25, 0, 149, "AuthorSection"],
+Cell[55863, 1288, 368, 10, 23, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
