@@ -277,10 +277,11 @@ possenergy = [7.97E+51,
 1.23E+48,
 1.13E+48
 ]
-energyinitial = 10**50
+energyinitial = float(input('Please enter inital energy'))
 poss_differencediv = possenergy[1] / energyinitial
 for i in range(0,len(possenergy)):
     possenergy[i] /= poss_differencediv
+print(possenergy[1])
 '''------STRUCTURED JET SIMULATION DATA------'''
 '''------IMPORTS-------'''
 import numpy as np
@@ -372,11 +373,13 @@ elif stage == '3rd generation':
     Dv_WASH = 170 * 10
     
 trials = 100 # input("Enter the number of points you want to test: ") + 1
-iterations = 100
+iterations = 1000
 GRBFINALnum_off, GWGRBFINALnum_off, GRBFINALnum_struc_best, GWGRBFINALnum_struc_best, GRBFINALnum_struc_sim, GWGRBFINALnum_struc_sim = 0, 0, 0, 0, 0, 0
 GWPERCENTMEAN, GWFINALnum = [], 0
 GRBPERCENTMEAN_off, GWGRBPERCENTMEAN_off, GRBPERCENTMEAN_struc_best, GWGRBPERCENTMEAN_struc_best, GRBPERCENTMEAN_struc_sim, GWGRBPERCENTMEAN_struc_sim = [], [], [], [], [], []
 GBMtheta, GBMphi, SWIFTtheta, SWIFTphi = [], [], [], []
+
+maxDistance = 450 #Max distance of generation in Mpc
 
 for q in range(0,iterations):
     RHO_PLUS_LOUIS, RHO_CROSS_LOUIS, RHO_PLUS_WASH, RHO_CROSS_WASH, RHO_PLUS_VIRGO, RHO_CROSS_VIRGO = [], [], [], [], [], []
@@ -386,22 +389,24 @@ for q in range(0,iterations):
     antenna_power = []
     GRBTESTnum_off, GRBTESTnum_struc_best, GRBTESTnum_struc_sim = 0, 0, 0
     GWTESTnum = 0
-    
-    #creating random continuous region of space
-    
+
+    #Phi and Theta uniformly distributed 
     for z in range(0,trials): # binary neutron star merger creation
-        phi.append(random.uniform(0.0,2 * math.pi))
-        theta.append(random.uniform(0.0, math.pi))
-        distance.append(random.uniform(0.0,450.0))
+        distance.append(random.uniform(0.0,maxDistance))
         h_LOUIS.append(((((Dv_LOUIS * 2.25 )**2))/(((distance[z]) ** 2)))) #*2.25 to account for average over polarization
         h_WASH.append(((((Dv_WASH * 2.25 )**2))/((distance[z]) ** 2)))
         h_VIRGO.append(((((Dv_VIRGO * 2.25 )**2))/((distance[z]) ** 2)))
         psi.append(random.uniform(0,math.pi * 2))
-        GBMtheta.append(random.uniform(1.9823131728623847, math.pi))
+
+        phi.append(random.uniform(0, 2 * math.pi))
+        theta.append(random.uniform(0, math.pi))
+
+        GBMtheta.append(random.uniform(1.9823131728623847, math.pi))     #creating random continuous region of space for GRB detections
         GBMphi.append(((14 * math.pi)/5) / (-math.cos(GBMtheta[z]) + 1))
         SWIFTtheta.append(random.uniform(math.pi/2, math.pi))
         SWIFTphi.append((2*math.pi) / (-math.cos(SWIFTtheta[z]) + 1))
-        thetaobs.append(2 * math.asin(math.sin(theta[z]) * math.sin(psi[z]/2)))#Fermi Observation angle set, a tetrehedron trig
+
+        thetaobs.append(random.uniform(0,math.pi/2)) #GRB Observation angle and inclination angle
     '''------CREATE POINTS-------'''
     '''------GW DETECTORS------''' #chi is orientation from East in degrees
     #input different detector locations and orientations, beta and lambda are lattitude and longitude
@@ -447,15 +452,19 @@ for q in range(0,iterations):
     for f in range(0, trials):
         #change to signal averaging
         if stage != '3rd generation':
-            SNRcalculatedLOUISsig.append(math.sqrt(((RHO_PLUS_LOUIS[f]**2) + (RHO_CROSS_LOUIS[f] ** 2)) * h_LOUIS[f]))
-            SNRcalculatedWASHsig.append(math.sqrt(((RHO_PLUS_WASH[f] ** 2) + (RHO_CROSS_WASH[f] ** 2)) * h_WASH[f]))
-            SNRcalculatedVIRGOsig.append(math.sqrt(((RHO_PLUS_VIRGO[f] ** 2) + (RHO_CROSS_VIRGO[f] ** 2)) * h_VIRGO[f]))
-            SNRcalculated.append(((SNRcalculatedLOUISsig[f] + SNRcalculatedWASHsig[f] + SNRcalculatedVIRGOsig[f])**2)/(3))
+            inclinationMultiplier = (1/8) * (1 + (6 * (math.cos(thetaobs[f]) ** 2)) + (math.cos(thetaobs[f]) ** 4)) #Schutz eq 26
+
+            SNRcalculatedLOUISsig.append(math.sqrt(inclinationMultiplier * ((RHO_PLUS_LOUIS[f]**2) + (RHO_CROSS_LOUIS[f] ** 2)) * h_LOUIS[f]))
+            SNRcalculatedWASHsig.append(math.sqrt(inclinationMultiplier * ((RHO_PLUS_WASH[f] ** 2) + (RHO_CROSS_WASH[f] ** 2)) * h_WASH[f]))
+            SNRcalculatedVIRGOsig.append(math.sqrt(inclinationMultiplier * ((RHO_PLUS_VIRGO[f] ** 2) + (RHO_CROSS_VIRGO[f] ** 2)) * h_VIRGO[f]))
+
+
+            SNRcalculated.append(math.sqrt((SNRcalculatedLOUISsig[f] ** 2)+ (SNRcalculatedWASHsig[f] ** 2) + (SNRcalculatedVIRGOsig[f]**2)))
             
         else:
-            SNRcalculated.append(math.sqrt(((RHO_PLUS_WASH[f] ** 2) + (RHO_CROSS_WASH[f] ** 2)) * h_WASH[f]))
+            SNRcalculated.append(math.sqrt(((RHO_PLUS_WASH[f] ** 2) + (RHO_CROSS_WASH[f] ** 2)) * h_WASH[f])) #Only 1 3rd generation
             
-        if math.sqrt(SNRcalculated[f]) >= 8:
+        if math.sqrt(SNRcalculated[f]) >= 12: #network sensitivity in a network of 3 detectors is 3
             GWTEST.append(True)
             GWTESTnum += 1  
         else:
@@ -468,20 +477,24 @@ for q in range(0,iterations):
     beta = math.sqrt((-1 * ((1/gamma) ** 2)) + 1)
 
     for a in range(0,trials):
-        FOn = (energyinitial)/((4 * math.pi*((((distance[a] * 11.086e+25) ** 2)))))
-        deltaobs = delta_function(beta, thetaobs[a], math.radians(thetaj))
-        deltazero = delta_function(beta, 0, 0)
-        if math.degrees(thetaobs[a]) < thetaj:
-            eta = 1
+        if math.degrees(thetaobs[a]) > 38.49856821:
+            fluence_off.append(0)
         else:
-            eta = deltazero/deltaobs
-            
-        fluence_off.append((eta) * FOn)
+            FOn = (energyinitial)/((4 * math.pi*((((distance[a] * 3.086e+24) ** 2)))))
+            deltaobs = delta_function(beta, thetaobs[a], math.radians(thetaj))
+            deltazero = delta_function(beta, 0, 0)
+
+            if math.degrees(thetaobs[a]) < thetaj:
+                eta = 1
+            else:
+                eta = deltazero/deltaobs
+                
+            fluence_off.append((eta) * FOn)
         
-        if fluence_off[a] > (2.5e-8) and theta[a] < GBMtheta[a] and phi[a] < GBMphi[a]:
+        if fluence_off[a] > 2.5e-8 and theta[a] < GBMtheta[a] and phi[a] < GBMphi[a]:
             GRBTEST_off.append(True)
             GRBTESTnum_off += 1
-        elif fluence_off[a] > 	4.22e-10 and theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
+        elif fluence_off[a] > 2.5e-8 and theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
             GRBTEST_off.append(True)
             GRBTESTnum_off += 1
         else:
@@ -514,10 +527,10 @@ for q in range(0,iterations):
     for p in range(0,trials):
         fluence_struc_sim.append(real_energy_list[p]/(4 * math.pi * ((distance[p] * 3.086e24) ** 2)))
         
-        if fluence_struc_sim[p] > (2.5e-8) and theta[p] < GBMtheta[p] and phi[p] < GBMphi[p]:
+        if fluence_struc_sim[p] > 2.5e-8 and theta[p] < GBMtheta[p] and phi[p] < GBMphi[p]:
             GRBTEST_struc_sim.append(True)
             GRBTESTnum_struc_sim += 1
-        elif fluence_struc_sim[p] > 4.22e-10 and theta[p] < SWIFTtheta[p] and phi[p] < SWIFTphi[p]:
+        elif fluence_struc_sim[p] > 2.5e-8 and theta[p] < SWIFTtheta[p] and phi[p] < SWIFTphi[p]:
             GRBTEST_struc_sim.append(True)
             GRBTESTnum_struc_sim += 1
         else:
@@ -533,10 +546,10 @@ for q in range(0,iterations):
         energy_struc_best.append(angletoenergy(thetaobs[a], energyinitial, math.radians(thetac), alpha))
         fluence_struc_best.append(energy_struc_best[a]/(4 * math.pi * ((distance[a] * 3.086e24) ** 2)))
         
-        if fluence_struc_best[a] > (2.5e-8) and theta[a] < GBMtheta[a] and phi[a] < GBMphi[a]:
+        if fluence_struc_best[a] > 2.5e-8 and theta[a] < GBMtheta[a] and phi[a] < GBMphi[a]:
             GRBTEST_struc_best.append(True)
             GRBTESTnum_struc_best += 1
-        elif fluence_struc_best[a] > 4.22e-10 and theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
+        elif fluence_struc_best[a] > 2.5e-8 and theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
             GRBTEST_struc_best.append(True)
             GRBTESTnum_struc_best += 1
         else:
@@ -551,6 +564,7 @@ for q in range(0,iterations):
             GWGRBTESTnum_struc_sim += 1
         if GWTEST[g] == True and GRBTEST_struc_best[g] == True:
             GWGRBTESTnum_struc_best += 1
+
     '''------CROSS CHECK------'''
     '''------MEAN AND SD AND GRAPH------'''
     GWFINALnum = GWFINALnum + GWTESTnum
@@ -602,12 +616,12 @@ print('GW ' + str(GWFINALnum) + '        GRB Off Axis ' + str(GRBFINALnum_off) +
 print(' ')
 print('GW STANDARD DEVIATION ' + str(GWSD) + '        GRB STANDARD DEVIATION Off Axis ' + str(GRBSD_off) + '        GWGRB STANDARD DEVIATION Off Axis ' + str(GWGRBSD_off))
 print(' ')
-print('GW Volume '+ str((round(((((450)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3)),4))) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GWSD)/(1000**3)),4)))
-print('GRB Volume Off Axis '+ str(round(((((450)**3) * math.pi * (4/3) * GRBPERCENT_off)/(1000**3)),4)) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GRBSD_off))/(1000**3),4)))
-print('GWGRB Volume Off Axis '+ str(round((((450)**3) * math.pi * (4/3) * GWGRBPERCENT_off)/(1000**3),4)) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GWGRBSD_off))/(1000**3),4)))
+print('GW Volume '+ str((round(((((maxDistance)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3)),4))) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GWSD)/(1000**3)),4)))
+print('GRB Volume Off Axis '+ str(round(((((maxDistance)**3) * math.pi * (4/3) * GRBPERCENT_off)/(1000**3)),4)) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GRBSD_off))/(1000**3),4)))
+print('GWGRB Volume Off Axis '+ str(round((((maxDistance)**3) * math.pi * (4/3) * GWGRBPERCENT_off)/(1000**3),4)) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GWGRBSD_off))/(1000**3),4)))
 print('All volumes in Gpc^3')
 print(' ')
-print('GWGRB/GW, percent detection Off Axis ' + str(round(100 * ((((450)**3) * math.pi * (4/3) * GWGRBPERCENT_off)/(1000**3))/(((((450)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3))),2)))
+print('GWGRB/GW, percent detection Off Axis ' + str(round(100 * ((((maxDistance)**3) * math.pi * (4/3) * GWGRBPERCENT_off)/(1000**3))/(((((maxDistance)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3))),2)))
 #Structured Simulation
 print(' ')
 print('---------------------------------------------Structured Simulation---------------------------------------------')
@@ -617,12 +631,12 @@ print('GW ' + str(GWFINALnum) + '        GRB Structured Simulation ' + str(GRBFI
 print(' ')
 print('GW STANDARD DEVIATION ' + str(GWSD) + '        GRB STANDARD DEVIATION Structured Simulation ' + str(GRBSD_struc_sim) + '        GWGRB STANDARD DEVIATION Structured Simulation ' + str(GWGRBSD_struc_sim))
 print(' ')
-print('GW Volume '+ str(round(((((450)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3)),4)) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GWSD)/(1000**3)),4)))
-print('GRB Volume Structured Simulation '+ str(round((((450)**3) * math.pi * (4/3) * GRBPERCENT_struc_sim)/(1000**3),4)) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GRBSD_struc_sim))/(1000**3),4)))
-print('GWGRB Volume Structured Simulation '+ str(round((((450)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_sim)/(1000**3),4)) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GWGRBSD_struc_sim))/(1000**3),4)))
+print('GW Volume '+ str(round(((((maxDistance)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3)),4)) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GWSD)/(1000**3)),4)))
+print('GRB Volume Structured Simulation '+ str(round((((maxDistance)**3) * math.pi * (4/3) * GRBPERCENT_struc_sim)/(1000**3),4)) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GRBSD_struc_sim))/(1000**3),4)))
+print('GWGRB Volume Structured Simulation '+ str(round((((maxDistance)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_sim)/(1000**3),4)) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GWGRBSD_struc_sim))/(1000**3),4)))
 print('All volumes in Gpc^3')
 print(' ')
-print('GWGRB/GW, percent detection Structured Simulation ' + str(round(100 * ((((450)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_sim)/(1000**3))/(((((450)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3))),2)))
+print('GWGRB/GW, percent detection Structured Simulation ' + str(round(100 * ((((maxDistance)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_sim)/(1000**3))/(((((maxDistance)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3))),2)))
 #Structured Best
 print(' ')
 print('---------------------------------------------Structured Best---------------------------------------------')
@@ -632,12 +646,12 @@ print('GW ' + str(GWFINALnum) + '        GRB Structured Best ' + str(GRBFINALnum
 print(' ')
 print('GW STANDARD DEVIATION Structured Best ' + str(GWSD) + '        GRB STANDARD DEVIATION Structured Best ' + str(GRBSD_struc_best) + '        GWGRB STANDARD DEVIATION Structured Best ' + str(GWGRBSD_struc_best))
 print(' ')
-print('GW Volume '+ str(round(((((450)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3)),4)) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GWSD)/(1000**3)),4)))
-print('GRB Volume Structured Best '+ str(round((((450)**3) * math.pi * (4/3) * GRBPERCENT_struc_best)/(1000**3),4)) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GRBSD_struc_best))/(1000**3),4)))
-print('GWGRB Volume Structured Best '+ str(round((((450)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_best)/(1000**3),4)) + ' +/- ' + str(round(((((450)**3) * math.pi * (4/3) * GWGRBSD_struc_best))/(1000**3),4)))
+print('GW Volume '+ str(round(((((maxDistance)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3)),4)) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GWSD)/(1000**3)),4)))
+print('GRB Volume Structured Best '+ str(round((((maxDistance)**3) * math.pi * (4/3) * GRBPERCENT_struc_best)/(1000**3),4)) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GRBSD_struc_best))/(1000**3),4)))
+print('GWGRB Volume Structured Best '+ str(round((((maxDistance)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_best)/(1000**3),4)) + ' +/- ' + str(round(((((maxDistance)**3) * math.pi * (4/3) * GWGRBSD_struc_best))/(1000**3),4)))
 print('All volumes in Gpc^3')
 print(' ')
-print('GWGRB/GW, percent detection Structured Best ' + str(round(100 * ((((450)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_best)/(1000**3))/(((((450)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3))),2)))
+print('GWGRB/GW, percent detection Structured Best ' + str(round(100 * ((((maxDistance)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_best)/(1000**3))/(((((maxDistance)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3))),2)))
 
 '''------DATA DISPLAY------'''
 '''------GRAPHS------'''

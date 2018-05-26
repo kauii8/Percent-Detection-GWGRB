@@ -359,7 +359,7 @@ trials = 100 # input("Enter the number of points you want to test: ") + 1
 iterations = 100
 GRBFINALnum_off, GWGRBFINALnum_off, GRBFINALnum_struc_best, GWGRBFINALnum_struc_best, GRBFINALnum_struc_sim, GWGRBFINALnum_struc_sim = 0, 0, 0, 0, 0, 0
 GWPERCENTMEAN, GWFINALnum = [], 0
-distance = 450.0
+distance = 100.0
 GRBPERCENTMEAN_off, GWGRBPERCENTMEAN_off, GRBPERCENTMEAN_struc_best, GWGRBPERCENTMEAN_struc_best, GRBPERCENTMEAN_struc_sim, GWGRBPERCENTMEAN_struc_sim = [], [], [], [], [], []
 GBMtheta, GBMphi = 4.39822971502571, 4.39822971502571
 for q in range(0,iterations):
