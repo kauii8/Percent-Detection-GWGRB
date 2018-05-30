@@ -291,7 +291,9 @@ import random
 import pylab
 '''------IMPORTS-------'''
 '''------FUNCTION------'''
-for deff in range(0, N):
+def standarddev (x, mu, N):
+    summ = 0
+    for deff in range(0, N):
         adder = (x[deff] - mu) ** 2
         summ = summ + adder
     ret = math.sqrt(summ/(N-1))
@@ -311,7 +313,7 @@ trials = 100 # input("Enter the number of points you want to test: ") + 1
 iterations = 100000
 GRBFINALnum_off, GRBFINALnum_struc_best, GRBFINALnum_struc_sim = 0, 0, 0, 
 GRBPERCENTMEAN_off, GRBPERCENTMEAN_struc_best, GRBPERCENTMEAN_struc_sim= [], [], []
-GBMtheta, GBMphi = [], []
+SWIFTtheta, SWIFTphi = [], []
 
 for q in range(0,iterations):
     RHO_PLUS_LOUIS, RHO_CROSS_LOUIS, RHO_PLUS_WASH, RHO_CROSS_WASH, RHO_PLUS_VIRGO, RHO_CROSS_VIRGO = [], [], [], [], [], []
@@ -328,8 +330,8 @@ for q in range(0,iterations):
         theta.append(random.uniform(0.0, math.pi))
         distance.append(random.uniform(0.0,200.0))
         psi.append(random.uniform(0,math.pi * 2))
-        GBMtheta.append(random.uniform(1.9823131728623847, math.pi))
-        GBMphi.append(((14 * math.pi)/5) / (-math.cos(GBMtheta[z]) + 1))
+        SWIFTtheta.append(random.uniform(math.pi/2, math.pi))
+        SWIFTphi.append((2*math.pi) / (-math.cos(SWIFTtheta[z]) + 1))
         thetaobs.append(2 * math.asin(math.sin(theta[z]) * math.sin(psi[z]/2)))#Fermi Observation angle set, a tetrehedron trig
     '''------CREATE POINTS-------'''
     '''------OFF AXIS------'''
@@ -353,7 +355,7 @@ for q in range(0,iterations):
                 
             fluence_off.append((eta) * FOn)
         
-        if fluence_off[a] > 2.5e-8 and theta[a] < GBMtheta[a] and phi[a] < GBMphi[a]:
+        if fluence_off[a] > 2.5e-8 and theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
             GRBTEST_off.append(True)
             GRBTESTnum_off += 1
         else:
@@ -386,7 +388,7 @@ for q in range(0,iterations):
     for p in range(0,trials):
         fluence_struc_sim.append(real_energy_list[p]/(4 * math.pi * ((distance[p] * 3.086e24) ** 2)))
         
-        if fluence_struc_sim[p] > (2.5e-8) and theta[p] < GBMtheta[p] and phi[p] < GBMphi[p]:
+        if fluence_struc_sim[p] > (2.5e-8) and theta[p] < SWIFTtheta[p] and phi[p] < SWIFTphi[p]:
             GRBTEST_struc_sim.append(True)
             GRBTESTnum_struc_sim += 1
         else:
@@ -403,7 +405,7 @@ for q in range(0,iterations):
         energy_struc_best.append(angletoenergy(thetaobs[a], energyinitial, math.radians(thetac), alpha))
         fluence_struc_best.append(energy_struc_best[a]/(4 * math.pi * ((distance[a] * 3.086e24) ** 2)))
         
-        if fluence_struc_best[a] > (2.5e-8) and theta[a] < GBMtheta[a] and phi[a] < GBMphi[a]:
+        if fluence_struc_best[a] > (2.5e-8) and theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
             GRBTEST_struc_best.append(True)
             GRBTESTnum_struc_best += 1
         else:

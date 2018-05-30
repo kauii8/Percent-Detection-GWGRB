@@ -277,11 +277,10 @@ possenergy = [7.97E+51,
 1.23E+48,
 1.13E+48
 ]
-energyinitial = float(input('Please enter inital energy'))
+energyinitial = float(input('Please enter inital energy '))
 poss_differencediv = possenergy[1] / energyinitial
 for i in range(0,len(possenergy)):
     possenergy[i] /= poss_differencediv
-print(possenergy[1])
 '''------STRUCTURED JET SIMULATION DATA------'''
 '''------IMPORTS-------'''
 import numpy as np
@@ -332,9 +331,6 @@ def DMS_TO_DEGREES(degs, mins, secs):
     ret = degs + (mins/60) + (secs/3600)
     return ret
 
-def rotate(l, n):
-    return l[n:] + l[:n]
-    
 def standarddev (x, mu, N):
     summ = 0
     for deff in range(0, N):
@@ -352,6 +348,8 @@ def delta_function(beta, thetaobs, thetaj):
     return ret
 '''------FUNCTION------'''
 '''------CREATE POINTS------'''
+numSame = 0
+numDiff = 0
 stage = input('Enter what stage (design, late low, late mid, late high, mid low, mid mid, mid high, 3rd generation) ')
 #stage = 'design'
 if stage == 'design':
@@ -370,16 +368,18 @@ elif stage == 'late mid':
 elif stage == 'late high':
     Dv_LOUIS, Dv_WASH, Dv_VIRGO = 170, 170, 115
 elif stage == '3rd generation':
-    Dv_WASH = 170 * 10
+    Dv_WASH = 190 * 10
+    Dv_LOUIS, Dv_VIRGO = 1, 1
     
 trials = 100 # input("Enter the number of points you want to test: ") + 1
-iterations = 1000
+iterations = 100
 GRBFINALnum_off, GWGRBFINALnum_off, GRBFINALnum_struc_best, GWGRBFINALnum_struc_best, GRBFINALnum_struc_sim, GWGRBFINALnum_struc_sim = 0, 0, 0, 0, 0, 0
 GWPERCENTMEAN, GWFINALnum = [], 0
 GRBPERCENTMEAN_off, GWGRBPERCENTMEAN_off, GRBPERCENTMEAN_struc_best, GWGRBPERCENTMEAN_struc_best, GRBPERCENTMEAN_struc_sim, GWGRBPERCENTMEAN_struc_sim = [], [], [], [], [], []
 GBMtheta, GBMphi, SWIFTtheta, SWIFTphi = [], [], [], []
 
-maxDistance = 450 #Max distance of generation in Mpc
+maxDistance = 450.0 #Max distance of generation in Mpc
+minDistance = 0 #Min distance of generation in Mpc
 
 for q in range(0,iterations):
     RHO_PLUS_LOUIS, RHO_CROSS_LOUIS, RHO_PLUS_WASH, RHO_CROSS_WASH, RHO_PLUS_VIRGO, RHO_CROSS_VIRGO = [], [], [], [], [], []
@@ -392,12 +392,12 @@ for q in range(0,iterations):
 
     #Phi and Theta uniformly distributed 
     for z in range(0,trials): # binary neutron star merger creation
-        distance.append(random.uniform(0.0,maxDistance))
-        h_LOUIS.append(((((Dv_LOUIS * 2.25 )**2))/(((distance[z]) ** 2)))) #*2.25 to account for average over polarization
-        h_WASH.append(((((Dv_WASH * 2.25 )**2))/((distance[z]) ** 2)))
-        h_VIRGO.append(((((Dv_VIRGO * 2.25 )**2))/((distance[z]) ** 2)))
+        distance.append(random.uniform(minDistance,maxDistance))
+        h_LOUIS.append(((((Dv_LOUIS * 2.25 * math.sqrt(8))**2))/(((distance[z]) ** 2)))) #*2.25 to account for average over polarization
+        h_WASH.append(((((Dv_WASH * 2.25 * math.sqrt(8))**2))/((distance[z]) ** 2)))
+        h_VIRGO.append(((((Dv_VIRGO * 2.25 * math.sqrt(8))**2))/((distance[z]) ** 2)))
+        
         psi.append(random.uniform(0,math.pi * 2))
-
         phi.append(random.uniform(0, 2 * math.pi))
         theta.append(random.uniform(0, math.pi))
 
@@ -464,7 +464,7 @@ for q in range(0,iterations):
         else:
             SNRcalculated.append(math.sqrt(((RHO_PLUS_WASH[f] ** 2) + (RHO_CROSS_WASH[f] ** 2)) * h_WASH[f])) #Only 1 3rd generation
             
-        if math.sqrt(SNRcalculated[f]) >= 12: #network sensitivity in a network of 3 detectors is 3
+        if SNRcalculated[f] >= 12: #network sensitivity in a network of 3 detectors is 12 SNR
             GWTEST.append(True)
             GWTESTnum += 1  
         else:
@@ -494,6 +494,7 @@ for q in range(0,iterations):
         if fluence_off[a] > 2.5e-8 and theta[a] < GBMtheta[a] and phi[a] < GBMphi[a]:
             GRBTEST_off.append(True)
             GRBTESTnum_off += 1
+
         elif fluence_off[a] > 2.5e-8 and theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
             GRBTEST_off.append(True)
             GRBTESTnum_off += 1
@@ -511,6 +512,7 @@ for q in range(0,iterations):
         difference_previous = 1
         realtheta = 0
         thetanumber = 0
+
         if math.degrees(thetaobs[h]) > 38.49856821:
             real_energy_list.append(0)
         else:
@@ -535,6 +537,11 @@ for q in range(0,iterations):
             GRBTESTnum_struc_sim += 1
         else:
             GRBTEST_struc_sim.append(False) 
+
+        # if GRBTEST_off[p] == GRBFINALnum_struc_sim[p]:
+        #     numSame += 1
+        # if GRBTEST_off[p] != GRBTEST_struc_sim[p]:
+        #     numDiff += 1
     '''------STRUCTURED JETS SIMULATION------'''  
     '''------STRUCTURED JET BEST FIT------'''
     fluence_struc_best, GRBTEST_struc_best, energy_struc_best = [], [], []
@@ -564,7 +571,6 @@ for q in range(0,iterations):
             GWGRBTESTnum_struc_sim += 1
         if GWTEST[g] == True and GRBTEST_struc_best[g] == True:
             GWGRBTESTnum_struc_best += 1
-
     '''------CROSS CHECK------'''
     '''------MEAN AND SD AND GRAPH------'''
     GWFINALnum = GWFINALnum + GWTESTnum
@@ -607,6 +613,7 @@ GWGRBSD_struc_best = standarddev(GWGRBPERCENTMEAN_struc_best, GWGRBPERCENT_struc
 #Stage
 print(' ')
 print('---------------------------------------------' + stage + '---------------------------------------------')
+print('---------------------------------------------' + str(energyinitial) + '---------------------------------------------')
 print(' ')
 #Off-axis
 print('---------------------------------------------Off Axis---------------------------------------------')
@@ -653,6 +660,7 @@ print('All volumes in Gpc^3')
 print(' ')
 print('GWGRB/GW, percent detection Structured Best ' + str(round(100 * ((((maxDistance)**3) * math.pi * (4/3) * GWGRBPERCENT_struc_best)/(1000**3))/(((((maxDistance)**3) * math.pi * (4/3) * GWPERCENT)/(1000**3))),2)))
 
+# print("\n" + str(numSame) + "\n" + str(numDiff))
 '''------DATA DISPLAY------'''
 '''------GRAPHS------'''
 '''
