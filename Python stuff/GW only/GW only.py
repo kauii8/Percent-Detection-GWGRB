@@ -8,7 +8,7 @@ import random
 import pylab
 
 def AP_PLUS(eta,a,b,psi):
-    ret = math.sin(eta) * ((a * math.cos(2 * psi)) + (b * math.sin(2 * psi)))
+    ret = math.sin(eta) * ((a * math.cos(2 * psi)) + (b * math.sin(2 * psi)))   
     return ret
     
 def AP_CROSS(eta,a,b,psi):
@@ -67,6 +67,10 @@ def VolumeGpc(min, max, percent):
     ret = str((VolumeShell(min, max) * percent) / (1000 ** 3))
     return ret
 
+def AntennaPowerSingle(theta, phi):
+    ret = ((1/4) * ((1 + (math.cos(theta) ** 2)) ** 2) * (math.cos(2 * phi) ** 2)) + ((math.cos(theta) ** 2) * (math.sin(2 * phi) ** 2))
+    return ret
+
 Dv_LOUIS, Dv_WASH, Dv_VIRGO = 190, 190, 145
 trials = 100 # input("Enter the number of points you want to test: ") + 1
 iterations = 100
@@ -74,8 +78,9 @@ GWPERCENTMEAN, GWFINALnum = [], 0
 minDistance = 0 #Min distance of generation in Mpc
 maxDistance = 450 #Max distance of generation in Mpc
 
-
 antennaPowerPatternLouis = []
+antennaPowerPatternSingle = []
+inclinationMultiplier = []
 for q in range(0,iterations):
     RHO_PLUS_LOUIS, RHO_CROSS_LOUIS, RHO_PLUS_WASH, RHO_CROSS_WASH, RHO_PLUS_VIRGO, RHO_CROSS_VIRGO = [], [], [], [], [], []
     a_AP_LOUIS, a_AP_WASH, a_AP_VIRGO, b_AP_LOUIS, b_AP_WASH, b_AP_VIRGO = [], [], [], [], [], []
@@ -87,11 +92,11 @@ for q in range(0,iterations):
     #Phi and Theta uniformly distributed 
     for z in range(0,trials): # binary neutron star merger creation
         distance.append(random.uniform(minDistance,maxDistance))
-        h_LOUIS.append(((((Dv_LOUIS * 2.25 * math.sqrt(8))**2)))/(((distance[z]) ** 2))) #*2.25 to account for average over polarization
-        h_WASH.append(((((Dv_WASH * 2.25 * math.sqrt(8))**2)))/(((distance[z]) ** 2)))
-        h_VIRGO.append((((((Dv_VIRGO * 2.25 * math.sqrt(8))**2)))/((distance[z]) ** 2)))
+        h_LOUIS.append(((((Dv_LOUIS * 12)** 2)))/(((distance[z]) ** 2))) #*2.25 to account for average over polarization
+        h_WASH.append(((((Dv_WASH * 12)** 2)))/(((distance[z]) ** 2)))
+        h_VIRGO.append((((((Dv_VIRGO * 12) ** 2)))/((distance[z]) ** 2)))
         
-        psi.append(random.uniform(0,math.pi * 2))
+        psi.append(random.uniform(0,2 * math.pi))
         phi.append(random.uniform(0, 2 * math.pi))
         theta.append(random.uniform(0, math.pi))
 
@@ -134,20 +139,23 @@ for q in range(0,iterations):
             RHO_CROSS_LOUIS.append(AP_CROSS(eta_AP, a_AP_LOUIS[d], b_AP_LOUIS[d], psi[d]))
             RHO_CROSS_WASH.append(AP_CROSS(eta_AP, a_AP_WASH[d], b_AP_WASH[d], psi[d]))
             RHO_CROSS_VIRGO.append(AP_CROSS(eta_AP, a_AP_VIRGO[d], b_AP_VIRGO[d], psi[d]))
+
+            antennaPowerPatternSingle.append(AntennaPowerSingle(theta[d], phi[d]))
     '''------ANTENNA PATTERNS------'''
     '''------SNR CALCULATOR/CHECKER------'''
     SNRcalculatedLOUISsig, SNRcalculatedWASHsig, SNRcalculatedVIRGOsig, SNRcalculated, GWTEST = [], [], [], [], []
     SNRnum = 0
     for f in range(0, trials):
-        inclinationMultiplier = (1/8) * (1 + (6 * (math.cos(thetaobs[f]) ** 2)) + (math.cos(thetaobs[f]) ** 4)) #Schutz eq 26
-        antennaPowerPatternLouis.append(math.sqrt(inclinationMultiplier * ((RHO_PLUS_LOUIS[f]**2) + (RHO_CROSS_LOUIS[f] ** 2))))
+        inclinationMultiplier.append((1/8) * (1 + (6 * (math.cos(thetaobs[f]) ** 2)) + (math.cos(thetaobs[f]) ** 4))) #Schutz eq 26
+        antennaPowerPatternLouis.append(AntennaPowerSingle(theta[f], phi[f]))#((RHO_PLUS_LOUIS[f]**2) + (RHO_CROSS_LOUIS[f] ** 2)))
+        #SNRcalculatedLOUISsig.append(math.sqrt(inclinationMultiplier[f] * antennaPowerPatternLouis[f]))
+        SNRcalculatedLOUISsig.append(math.sqrt(inclinationMultiplier[f] * ((RHO_PLUS_LOUIS[f]**2) + (RHO_CROSS_LOUIS[f] ** 2)) * h_LOUIS[f]))
+        SNRcalculatedWASHsig.append(math.sqrt(inclinationMultiplier[f] * ((RHO_PLUS_WASH[f] ** 2) + (RHO_CROSS_WASH[f] ** 2)) * h_WASH[f]))
+        SNRcalculatedVIRGOsig.append(math.sqrt(inclinationMultiplier[f] * ((RHO_PLUS_VIRGO[f] ** 2) + (RHO_CROSS_VIRGO[f] ** 2)) * h_VIRGO[f]))
 
-        SNRcalculatedLOUISsig.append(math.sqrt(inclinationMultiplier * ((RHO_PLUS_LOUIS[f]**2) + (RHO_CROSS_LOUIS[f] ** 2)) * h_LOUIS[f]))
-        SNRcalculatedWASHsig.append(math.sqrt(inclinationMultiplier * ((RHO_PLUS_WASH[f] ** 2) + (RHO_CROSS_WASH[f] ** 2)) * h_WASH[f]))
-        SNRcalculatedVIRGOsig.append(math.sqrt(inclinationMultiplier * ((RHO_PLUS_VIRGO[f] ** 2) + (RHO_CROSS_VIRGO[f] ** 2)) * h_VIRGO[f]))
 
-
-        SNRcalculated.append(math.sqrt((SNRcalculatedLOUISsig[f] ** 2)+ (SNRcalculatedWASHsig[f] ** 2) + (SNRcalculatedVIRGOsig[f]**2)))
+        SNRcalculated.append(math.sqrt((SNRcalculatedLOUISsig[f] ** 2)))#+ (SNRcalculatedWASHsig[f] ** 2# + (SNRcalculatedVIRGOsig[f]**2)))
+        #SNRcalculated.append(math.sqrt(antennaPowerPatternLouis[f] * h_LOUIS[f]))
         
         if SNRcalculated[f] >= 12: #network sensitivity in a network of 3 detectors is 12 SNR''
             GWTEST.append(True)
@@ -170,10 +178,16 @@ print(' ')
 print('GW ' + str(GWFINALnum))
 print(' ')
 print('GW Volume '+ VolumeGpc(minDistance, maxDistance, GWPERCENT) + ' +/- ' + str((((maxDistance**3) * math.pi * (4/3) * GWSD)/(1000**3))))
-print(VolumeShell(minDistance, maxDistance))
+# print(VolumeShell(minDistance, maxDistance))
+print(max(RHO_CROSS_VIRGO))
+print(max(RHO_PLUS_VIRGO))
+print(max(antennaPowerPatternSingle))
+print(sum(antennaPowerPatternLouis)/len(antennaPowerPatternLouis))
 print(max(antennaPowerPatternLouis))
-print(max(SNRcalculatedLOUISsig))
-print(max(SNRcalculatedWASHsig))
-print(max(SNRcalculatedVIRGOsig))
-print(max(SNRcalculated))
+print(sum(inclinationMultiplier)/len(inclinationMultiplier))
+print(max(inclinationMultiplier))
+# print(max(SNRcalculatedLOUISsig))
+# print(max(SNRcalculatedWASHsig))
+# print(max(SNRcalculatedVIRGOsig))
+# print(max(SNRcalculated))
 '''------DATA DISPLAY------'''

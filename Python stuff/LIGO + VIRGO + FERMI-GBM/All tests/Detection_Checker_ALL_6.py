@@ -278,7 +278,7 @@ possenergy = [7.97E+51,
 1.13E+48
 ]
 energyinitial = float(input('Please enter inital energy '))
-poss_differencediv = possenergy[1] / energyinitial
+poss_differencediv = possenergy[0] / energyinitial
 for i in range(0,len(possenergy)):
     possenergy[i] /= poss_differencediv
 '''------STRUCTURED JET SIMULATION DATA------'''
@@ -350,8 +350,8 @@ def delta_function(beta, thetaobs, thetaj):
 '''------CREATE POINTS------'''
 numSame = 0
 numDiff = 0
-stage = input('Enter what stage (design, late low, late mid, late high, mid low, mid mid, mid high, 3rd generation) ')
-#stage = 'design'
+#stage = input('Enter what stage (design, late low, late mid, late high, mid low, mid mid, mid high, 3rd generation) ')
+stage = 'design'
 if stage == 'design':
     Dv_LOUIS, Dv_WASH, Dv_VIRGO = 190, 190, 145
     
@@ -393,9 +393,9 @@ for q in range(0,iterations):
     #Phi and Theta uniformly distributed 
     for z in range(0,trials): # binary neutron star merger creation
         distance.append(random.uniform(minDistance,maxDistance))
-        h_LOUIS.append(((((Dv_LOUIS * 2.25 * math.sqrt(8))**2))/(((distance[z]) ** 2)))) #*2.25 to account for average over polarization
-        h_WASH.append(((((Dv_WASH * 2.25 * math.sqrt(8))**2))/((distance[z]) ** 2)))
-        h_VIRGO.append(((((Dv_VIRGO * 2.25 * math.sqrt(8))**2))/((distance[z]) ** 2)))
+        h_LOUIS.append(((((Dv_LOUIS * 12)**2))/(((distance[z]) ** 2)))) #*2.25 to account for average over polarization
+        h_WASH.append(((((Dv_WASH * 12)**2))/((distance[z]) ** 2)))
+        h_VIRGO.append(((((Dv_VIRGO * 12)**2))/((distance[z]) ** 2)))
         
         psi.append(random.uniform(0,math.pi * 2))
         phi.append(random.uniform(0, 2 * math.pi))
@@ -449,7 +449,7 @@ for q in range(0,iterations):
     '''------SNR CALCULATOR/CHECKER------'''
     SNRcalculatedLOUISsig, SNRcalculatedWASHsig, SNRcalculatedVIRGOsig, SNRcalculated, GWTEST = [], [], [], [], []
     SNRnum = 0
-    for f in range(0, trials):
+    for f in range(0, trials):  
         #change to signal averaging
         if stage != '3rd generation':
             inclinationMultiplier = (1/8) * (1 + (6 * (math.cos(thetaobs[f]) ** 2)) + (math.cos(thetaobs[f]) ** 4)) #Schutz eq 26

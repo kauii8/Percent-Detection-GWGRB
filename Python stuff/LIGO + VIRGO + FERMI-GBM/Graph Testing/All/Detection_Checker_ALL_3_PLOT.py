@@ -277,10 +277,12 @@ possenergy = [7.97E+51,
 1.23E+48,
 1.13E+48
 ]
-energyinitial = 10**50
-poss_differencediv = possenergy[1] / energyinitial
+energyinitial = 1e51
+poss_differencediv = possenergy[0] / energyinitial
+print(poss_differencediv)
 for i in range(0,len(possenergy)):
     possenergy[i] /= poss_differencediv
+print(possenergy[len(possenergy)-1])
 '''------STRUCTURED JET SIMULATION DATA------'''
 '''------IMPORTS-------'''
 import numpy as np
@@ -359,9 +361,7 @@ trials = 100 # input("Enter the number of points you want to test: ") + 1
 iterations = 100
 GRBFINALnum_off, GWGRBFINALnum_off, GRBFINALnum_struc_best, GWGRBFINALnum_struc_best, GRBFINALnum_struc_sim, GWGRBFINALnum_struc_sim = 0, 0, 0, 0, 0, 0
 GWPERCENTMEAN, GWFINALnum = [], 0
-distance = 100.0
-GRBPERCENTMEAN_off, GWGRBPERCENTMEAN_off, GRBPERCENTMEAN_struc_best, GWGRBPERCENTMEAN_struc_best, GRBPERCENTMEAN_struc_sim, GWGRBPERCENTMEAN_struc_sim = [], [], [], [], [], []
-GBMtheta, GBMphi = 4.39822971502571, 4.39822971502571
+distance = 450
 for q in range(0,iterations):
     RHO_PLUS_LOUIS, RHO_CROSS_LOUIS, RHO_PLUS_WASH, RHO_CROSS_WASH, RHO_PLUS_VIRGO, RHO_CROSS_VIRGO = [], [], [], [], [], []
     a_AP_LOUIS, a_AP_WASH, a_AP_VIRGO, b_AP_LOUIS, b_AP_WASH, b_AP_VIRGO = [], [], [], [], [], []
@@ -372,88 +372,32 @@ for q in range(0,iterations):
     for z in range(0,trials):
         phi.append(random.uniform(0.0,2 * math.pi))
         theta.append(random.uniform(0.0, math.pi))
-        rotationangle.append(random.uniform(0, 2 * math.pi))
-        rotationpercent.append((rotationangle[z])/(math.pi))
-        h_LOUIS.append(((((Dv_LOUIS * 2.25 * 3.086e24)**2))/(((distance * 3.086e24) ** 2))))
-        h_WASH.append(((((Dv_WASH * 2.25 * 3.086e24)**2))/((distance * 3.086e24) ** 2)))
-        h_VIRGO.append(((((Dv_VIRGO * 2.25 * 3.086e24)**2))/((distance * 3.086e24) ** 2)))
         #thetaobs.append(random.uniform(0, math.pi))
         thetaobs = np.linspace(0, math.pi/2, trials).tolist()
         psi.append(random.uniform(0,math.pi * 2))
         #Fermi Observation angle set
     '''------CREATE POINTS-------'''
-    '''------GW DETECTORS------''' #CHANGE THIS TO CLASSES LATER!!!
-    eta_AP = math.pi/2
-    
-    #Livingston Louisiana LIGO
-    beta_LOUIS = math.radians(DMS_TO_DEGREES(30,33,46.4))
-    lambd_LOUIS = math.radians(DMS_TO_DEGREES(90,46,27.3))
-    chi_LOUIS = COMPASS_TO_ANGLE(math.radians(208))
-    
-    #Hanford Washington LIGO
-    beta_WASH = math.radians(DMS_TO_DEGREES(46,27,18.5))
-    lambd_WASH = math.radians(DMS_TO_DEGREES(119,24,27.6))
-    chi_WASH = COMPASS_TO_ANGLE(math.radians(279))
-    
-    #VIRGO
-    beta_VIRGO = math.radians(DMS_TO_DEGREES(43,37,53))
-    lambd_VIRGO = math.radians(DMS_TO_DEGREES(10,30,16))
-    chi_VIRGO = COMPASS_TO_ANGLE(math.radians(333.5))
-    '''------GW DETECTORS------'''     
-    '''------ANTENNA PATTERNS-------'''
-    for d in range(0,trials):
-            #print(afunction(chi_LOUIS, beta_LOUIS, theta[d], phi[d], lambd_LOUIS))
-            a_AP_LOUIS.append(afunction(chi_LOUIS, beta_LOUIS, theta[d], phi[d], lambd_LOUIS))
-            a_AP_WASH.append(afunction(chi_WASH, beta_WASH, theta[d], phi[d], lambd_WASH))
-            a_AP_VIRGO.append(afunction(chi_VIRGO, beta_VIRGO, theta[d], phi[d], lambd_VIRGO))
-            
-            b_AP_LOUIS.append(bfunction(chi_LOUIS, beta_LOUIS, theta[d], phi[d], lambd_LOUIS))
-            b_AP_WASH.append(bfunction(chi_WASH, beta_WASH, theta[d], phi[d], lambd_WASH))
-            b_AP_VIRGO.append(bfunction(chi_VIRGO, beta_VIRGO, theta[d], phi[d], lambd_VIRGO))
-            
-            RHO_PLUS_LOUIS.append(AP_PLUS(eta_AP, a_AP_LOUIS[d], b_AP_LOUIS[d], psi[d]))
-            RHO_PLUS_WASH.append(AP_PLUS(eta_AP, a_AP_WASH[d], b_AP_WASH[d], psi[d]))
-            RHO_PLUS_VIRGO.append(AP_PLUS(eta_AP, a_AP_VIRGO[d], b_AP_VIRGO[d], psi[d]))
-            
-            RHO_CROSS_LOUIS.append(AP_CROSS(eta_AP, a_AP_LOUIS[d], b_AP_LOUIS[d], psi[d]))
-            RHO_CROSS_WASH.append(AP_CROSS(eta_AP, a_AP_WASH[d], b_AP_WASH[d], psi[d]))
-            RHO_CROSS_VIRGO.append(AP_CROSS(eta_AP, a_AP_VIRGO[d], b_AP_VIRGO[d], psi[d]))
-    '''------ANTENNA PATTERNS------'''
-    '''------SNR CALCULATOR/CHECKER------'''
-    SNRcalculated, SNRnum, GWTEST = [], 0, []
-    for f in range(0, trials):
-        SNRcalculated.append(((RHO_PLUS_LOUIS[f]**2) + (RHO_CROSS_LOUIS[f] ** 2)) * h_LOUIS[f])
-        SNRcalculated[f] += ((RHO_PLUS_WASH[f] ** 2) + (RHO_CROSS_WASH[f] ** 2)) * h_WASH[f]
-        SNRcalculated[f] +=  ((RHO_PLUS_VIRGO[f] ** 2) + (RHO_CROSS_VIRGO[f] ** 2)) * h_VIRGO[f]
-                
-        if SNRcalculated[f] >= 64:
-            GWTEST.append(True)
-            GWTESTnum += 1
-        else:
-            GWTEST.append(False)
-    '''------SNR CALCULATOR/CHECKER------'''
     '''------OFF AXIS------'''
     fluence_off, GRBTEST_off = [], []
     gamma = 100
-    energyinitial = 10**50
     thetaj = 10
     beta = math.sqrt((-1 * ((1/gamma) ** 2)) + 1)
 
     for a in range(0,trials):
-        FOn = (energyinitial)/((4 * math.pi*((((distance * 3.086e+24) ** 2)))))
-        deltaobs = delta_function(beta, thetaobs[a], math.radians(thetaj))
-        deltazero = delta_function(beta, 0, 0)
-        if math.degrees(thetaobs[a]) < 10:
-            eta = 1
+        if math.degrees(thetaobs[a]) > 38.49856821:
+            fluence_off.append(0)
         else:
-            eta = deltazero/deltaobs
-        fluence_off.append((eta) * FOn)
-        
-        if fluence_off[a] < (2.5e-8) or theta[a] > GBMtheta or phi[a] > GBMphi:
-            GRBTEST_off.append(False)
-        else:
-            GRBTEST_off.append(True)    
-            GRBTESTnum_off += 1
+            FOn = (energyinitial)/((4 * math.pi*((distance * 3.086e+24) ** 2)))
+            deltaobs = delta_function(beta, thetaobs[a], math.radians(thetaj))
+            deltazero = delta_function(beta, 0, 0)
+
+            if math.degrees(thetaobs[a]) < thetaj:
+                eta = 1
+            else:
+                eta = deltazero/deltaobs
+                
+            fluence_off.append((eta) * FOn)
+            
     '''------OFF AXIS------'''
     '''------STRUCTURED JET SIMULATION------'''
     real_theta_list, real_energy_list, fluence_struc_sim, GRBTEST_struc_sim = [], [], [], []
@@ -465,6 +409,7 @@ for q in range(0,iterations):
         difference_previous = 1
         realtheta = 0
         thetanumber = 0
+
         if math.degrees(thetaobs[h]) > 38.49856821:
             real_energy_list.append(0)
         else:
@@ -481,11 +426,12 @@ for q in range(0,iterations):
     for p in range(0,trials):
         fluence_struc_sim.append(real_energy_list[p]/(4 * math.pi * ((distance * 3.086e24) ** 2)))
         
-        if fluence_struc_sim[p] < (2.5e-8) or theta[p] > GBMtheta or phi[p] > GBMphi:
-            GRBTEST_struc_sim.append(False)
-        else:
-            GRBTEST_struc_sim.append(True)    
-            GRBTESTnum_struc_sim += 1
+
+
+        # if GRBTEST_off[p] == GRBFINALnum_struc_sim[p]:
+        #     numSame += 1
+        # if GRBTEST_off[p] != GRBTEST_struc_sim[p]:
+        #     numDiff += 1
     '''------STRUCTURED JETS SIMULATION------'''  
     '''------STRUCTURED JET BEST FIT------'''
     fluence_struc_best, GRBTEST_struc_best, energy_struc_best = [], [], []
@@ -497,51 +443,17 @@ for q in range(0,iterations):
         energy_struc_best.append(angletoenergy(thetaobs[a], energyinitial, math.radians(thetac), alpha))
         fluence_struc_best.append(energy_struc_best[a]/(4 * math.pi * ((distance * 3.086e24) ** 2)))
         
-        if fluence_struc_best[a] < (2.5e-8) or theta[a] > GBMtheta or phi[a] > GBMphi:
-            GRBTEST_struc_best.append(False)
-        else:
-            GRBTEST_struc_best.append(True)    
-            GRBTESTnum_struc_best += 1
+  
     '''------STRUCTURED JET BEST FIT------'''
-    '''------CROSS CHECK------'''
-    GWGRBTESTnum_off, GWGRBTESTnum_struc_sim, GWGRBTESTnum_struc_best, = 0, 0, 0
-    for g in range(0,trials):
-        if GWTEST[g] == True and GRBTEST_off[g] == True:
-            GWGRBTESTnum_off += 1
-        if GWTEST[g] == True and GRBTEST_struc_sim[g] == True:
-            GWGRBTESTnum_struc_sim += 1
-        if GWTEST[g] == True and GRBTEST_struc_best[g] == True:
-            GWGRBTESTnum_struc_best += 1
-        if GWTEST[g] == True and GRBTEST_off[g] == False:
-            '''------CROSS CHECK------'''
-    '''------MEAN AND SD AND GRAPH------'''
-    GWFINALnum = GWFINALnum + GWTESTnum
-    GWPERCENTMEAN.append(GWTESTnum/trials)
-    
-    GRBFINALnum_off = GRBFINALnum_off + GRBTESTnum_off
-    GWGRBFINALnum_off = GWGRBFINALnum_off + GWGRBTESTnum_off
-    GRBPERCENTMEAN_off.append(GRBTESTnum_off/trials)
-    GWGRBPERCENTMEAN_off.append(GWGRBTESTnum_off/trials)
-    
-    GRBFINALnum_struc_sim = GRBFINALnum_struc_sim + GRBTESTnum_struc_sim
-    GWGRBFINALnum_struc_sim = GWGRBFINALnum_struc_sim + GWGRBTESTnum_struc_sim
-    GRBPERCENTMEAN_struc_sim.append(GRBTESTnum_struc_sim/trials)
-    GWGRBPERCENTMEAN_struc_sim.append(GWGRBTESTnum_struc_sim/trials)
-    
-    GRBFINALnum_struc_best = GRBFINALnum_struc_best + GRBTESTnum_struc_best
-    GWGRBFINALnum_struc_best = GWGRBFINALnum_struc_best + GWGRBTESTnum_struc_best
-    GRBPERCENTMEAN_struc_best.append(GRBTESTnum_struc_best/trials)
-    GWGRBPERCENTMEAN_struc_best.append(GWGRBTESTnum_struc_best/trials)
 
-'''------GRAPHS------'''
 thetaobs_struc = thetaobs
 for u in range(0,len(thetaobs)):
     thetaobs[u] = math.degrees(thetaobs[u])
 off_axis_graph = plt.plot(thetaobs,fluence_off, label = 'Off Axis')
 ax = plt.subplot(111)
-plt.title(r'$\theta_{obs}$' +' vs Fluence at 450 Mpc')
+plt.title(r'$\theta_{obs}$' +' vs Fluence at ' + str(distance) + ' Mpc' + ' and energy = ' + str(energyinitial))
 plt.xlabel(r'$\theta_{obs}$' + '[deg]')
-plt.ylabel('Fluence (100Mpc / d)'+r'$^2$'+' [erg/'+'cm' + r'$^2$' + '] ')
+plt.ylabel('Fluence (' + str(distance) + '100Mpc / d)'+r'$^2$'+' [erg/'+'cm' + r'$^2$' + '] ')
 plt.yscale('log')
 plt.xlim(0, math.pi)
 axes = plt.gca()
@@ -554,10 +466,8 @@ for u in range(0, trials):
     SWIFT_SENS.append(4.22e-10)
     
 Fermi_GBM_Sensitivity = plt.plot(thetaobs, GBM_SENS, linestyle='--', color='k')
-SWIFT_BAT_Sensitivity = plt.plot(thetaobs, SWIFT_SENS, linestyle='--', color='r')
 
 ax.annotate('Fermi-GBM sensitivity', xy=(1, .000000003), xytext=(2, .00000004), color='k')
-ax.annotate('SWIFT sensitivity', xy=(1, .000000003), xytext=(2, .0000000006), color='r')
 ax.grid(color='k', linestyle='-', linewidth=.2)
 
 structured_jet_sim_graph = plt.plot(thetaobs, fluence_struc_sim, label = 'Structured Jet Simulation Data')
