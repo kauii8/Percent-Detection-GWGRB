@@ -345,19 +345,20 @@ def delta_function(beta, thetaobs, thetaj):
 '''------FUNCTION------'''
 '''------CREATE POINTS------'''
 #energyinitial = float(input('Please enter inital energy '))
-for i in range (0, 3):
-    if i == 0:
-        energyinitial = 8e51
-    elif i == 1:
-        energyinitial = 1e51
-    elif i == 2:
-        energyinitial = 1e50
+for i in [1]:
+    energyinitial = 1e50
+    # if i == 0:
+    #     energyinitial = 8e51
+    # elif i == 1:
+    #     energyinitial = 1e51
+    # elif i == 2 :
+    #     energyinitial = 1e50
 
     poss_differencediv = possenergy[0] / energyinitial
     for i in range(0,len(possenergy)):
         possenergy[i] /= poss_differencediv
 
-    for x in range(0,8):
+    for x in [0,1,2,3,7]:
         #stage = input('Enter what stage (design, late low, late mid, late high, mid low, mid mid, mid high, 3rd generation) ')
         #stage = 'design
         if x == 0: #since we have different sensitivities we need different Dvs
@@ -368,12 +369,12 @@ for i in range (0, 3):
             stage = 'late mid'
         elif x == 3:
             stage = 'late high'
-        elif x == 4:
-            stage = 'mid low'
-        elif x == 5:
-            stage = 'mid mid'
-        elif x == 6:
-            stage = 'mid high'
+        # elif x == 4:
+        #     stage = 'mid low'
+        # elif x == 5:
+        #     stage = 'mid mid'
+        # elif x == 6:
+        #     stage = 'mid high'
         elif x == 7:
             stage = '3rd generation'
 
@@ -502,20 +503,18 @@ for i in range (0, 3):
             beta = math.sqrt((-1 * ((1/gamma) ** 2)) + 1)
 
             for a in range(0,trials):
-                if math.degrees(thetaobs[a]) > 38.49856821:
-                    fluence_off.append(0)
-                else:
-                    FOn = (energyinitial)/((4 * math.pi*((((distance[a] * 3.086e+24) ** 2)))))
-                    deltaobs = delta_function(beta, thetaobs[a], math.radians(thetaj))
-                    deltazero = delta_function(beta, 0, 0)
 
-                    if math.degrees(thetaobs[a]) < thetaj:
-                        eta = 1
-                    else:
-                        eta = deltazero/deltaobs
-                        
-                    fluence_off.append((eta) * FOn)
-                
+                FOn = (energyinitial)/((4 * math.pi*((((distance[a] * 3.086e+24) ** 2)))))
+                deltaobs = delta_function(beta, thetaobs[a], math.radians(thetaj))
+                deltazero = delta_function(beta, 0, 0)
+
+                if math.degrees(thetaobs[a]) < thetaj:
+                    eta = 1
+                else:
+                    eta = deltazero/deltaobs
+                    
+                fluence_off.append((eta) * FOn)
+            
                 if fluence_off[a] > 2.5e-8 and theta[a] < GBMtheta[a] and phi[a] < GBMphi[a]:
                     GRBTEST_off.append(True)
                     GRBTESTnum_off += 1

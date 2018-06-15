@@ -277,7 +277,7 @@ possenergy = [7.97E+51,
 1.23E+48,
 1.13E+48
 ]
-energyinitial = 8e51
+energyinitial = 1e50
 poss_differencediv = possenergy[1] / energyinitial
 for i in range(0,len(possenergy)):
     possenergy[i] /= poss_differencediv
@@ -310,10 +310,11 @@ def delta_function(beta, thetaobs, thetaj):
 '''------CREATE POINTS------'''
 numSame = 0
 trials = 100 # input("Enter the number of points you want to test: ") + 1
-iterations = 100000
+iterations = 100
 GRBFINALnum_off, GRBFINALnum_struc_best, GRBFINALnum_struc_sim = 0, 0, 0, 
 GRBPERCENTMEAN_off, GRBPERCENTMEAN_struc_best, GRBPERCENTMEAN_struc_sim= [], [], []
 SWIFTtheta, SWIFTphi = [], []
+staticPercent = 0
 
 for q in range(0,iterations):
     RHO_PLUS_LOUIS, RHO_CROSS_LOUIS, RHO_PLUS_WASH, RHO_CROSS_WASH, RHO_PLUS_VIRGO, RHO_CROSS_VIRGO = [], [], [], [], [], []
@@ -330,9 +331,9 @@ for q in range(0,iterations):
         theta.append(random.uniform(0.0, math.pi))
         distance.append(random.uniform(0.0,200.0))
         psi.append(random.uniform(0,math.pi * 2))
-        SWIFTtheta.append(random.uniform(math.pi/2, math.pi))
-        SWIFTphi.append((2*math.pi) / (-math.cos(SWIFTtheta[z]) + 1))
-        thetaobs.append(2 * math.asin(math.sin(theta[z]) * math.sin(psi[z]/2)))#Fermi Observation angle set, a tetrehedron trig
+        SWIFTtheta.append(random.uniform(0.7953988301841436, math.pi))
+        SWIFTphi.append(((3 * math.pi)/5)/ (-math.cos(SWIFTtheta[z]) + 1))
+        thetaobs.append(random.uniform(0, math.pi/2))#Fermi Observation angle set
     '''------CREATE POINTS-------'''
     '''------OFF AXIS------'''
     fluence_off, GRBTEST_off = [], []
@@ -341,26 +342,28 @@ for q in range(0,iterations):
     beta = math.sqrt((-1 * ((1/gamma) ** 2)) + 1)
 
     for a in range(0,trials):
-        if math.degrees(thetaobs[a]) > 38.49856821:
-            fluence_off.append(0)
-        else:
-            FOn = (energyinitial)/((4 * math.pi*((((distance[a] * 3.086e+24) ** 2)))))
-            deltaobs = delta_function(beta, thetaobs[a], math.radians(thetaj))
-            deltazero = delta_function(beta, 0, 0)
+        # if math.degrees(thetaobs[a]) > 38.49856821:
+        #     fluence_off.append(0)
+        # else:
+        FOn = (energyinitial)/((4 * math.pi*((((distance[a] * 3.086e+24) ** 2)))))
+        deltaobs = delta_function(beta, thetaobs[a], math.radians(thetaj))
+        deltazero = delta_function(beta, 0, 0)
 
-            if math.degrees(thetaobs[a]) < thetaj:
-                eta = 1
-            else:
-                eta = deltazero/deltaobs
-                
-            fluence_off.append((eta) * FOn)
+        if math.degrees(thetaobs[a]) < thetaj:
+            eta = 1
+        else:
+            eta = deltazero/deltaobs
         
+        fluence_off.append((eta) * FOn)
+
         if fluence_off[a] > 2.5e-8 and theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
             GRBTEST_off.append(True)
             GRBTESTnum_off += 1
         else:
             GRBTEST_off.append(False)    
-            
+
+        if theta[a] < SWIFTtheta[a] and phi[a] < SWIFTphi[a]:
+            staticPercent += 1
     '''------OFF AXIS------'''
     '''------STRUCTURED JET SIMULATION------'''
     real_theta_list, real_energy_list, fluence_struc_sim, GRBTEST_struc_sim = [], [], [], []
@@ -431,66 +434,70 @@ GRBPERCENT_struc_best = GRBFINALnum_struc_best/ (iterations * trials)
 GRBSD_struc_best = standarddev(GRBPERCENTMEAN_struc_best, GRBPERCENT_struc_best, iterations)
 '''------MEAN AND SD AND GRAPH------'''
 '''------DATA DISPLAY------'''
-#Stage
-print(' ')
-#Off-axis
-print('---------------------------------------------Off Axis---------------------------------------------')
-print('GRB Off Axis ' + str(GRBFINALnum_off) + '        TOTAL ' + str(iterations * trials))
-print(' ')
-print('GRB STANDARD DEVIATION Off Axis ' + str(GRBSD_off))
-print(' ')
-print('GRB Volume Off Axis '+ str(round(((((200)**3) * math.pi * (4/3) * GRBPERCENT_off)/(1000**3)),4)) + ' +/- ' + str(round(((((200)**3) * math.pi * (4/3) * GRBSD_off))/(1000**3),4)))
-print('All volumes in Gpc^3')
-print(' ')
-print('GRB percent detection Off Axis ' + str(round(100 * ((((200)**3) * math.pi * (4/3) * GRBPERCENT_off)/(1000**3))/(((((200)**3) * math.pi * (4/3))/(1000**3))),2)))
-#Structured Simulation
-print(' ')
-print('---------------------------------------------Structured Simulation---------------------------------------------')
-print('GRB PERCENT Structured Simulation ' + str(GRBPERCENT_struc_sim))
-print(' ')
-print('GRB Structured Simulation ' + str(GRBFINALnum_struc_sim) + '        TOTAL ' + str(iterations * trials))
-print(' ')
-print('GRB STANDARD DEVIATION Structured Simulation ' + str(GRBSD_struc_sim))
-print(' ')
-print('GRB Volume Structured Simulation '+ str(round((((200)**3) * math.pi * (4/3) * GRBPERCENT_struc_sim)/(1000**3),4)) + ' +/- ' + str(round(((((200)**3) * math.pi * (4/3) * GRBSD_struc_sim))/(1000**3),4)))
-print('All volumes in Gpc^3')
-print(' ')
-print('GRB percent detection Structured Simulation ' + str(round(100 * ((((200)**3) * math.pi * (4/3) * GRBPERCENT_struc_sim)/(1000**3))/(((((200)**3) * math.pi * (4/3))/(1000**3))),2)))
-#Structured Best
-print(' ')
-print('---------------------------------------------Structured Best---------------------------------------------')
-print('GRB PERCENT Structured Best ' + str(GRBPERCENT_struc_best))
-print(' ')
-print('GRB Structured Best ' + '        TOTAL ' + str(iterations * trials))
-print(' ')
+staticPercent /= trials * iterations
+print(staticPercent)
+print(GRBPERCENT_off)
 
-print('GRB Volume Structured Best '+ str(round((((200)**3) * math.pi * (4/3) * GRBPERCENT_struc_best)/(1000**3),4)) + ' +/- ' + str(round(((((200)**3) * math.pi * (4/3) * GRBSD_struc_best))/(1000**3),4)))
-print('All volumes in Gpc^3')
-print(' ')
-print('GRB percent detection Structured Best ' + str(round(100 * ((((200)**3) * math.pi * (4/3) * GRBPERCENT_struc_best)/(1000**3))/(((((200)**3) * math.pi * (4/3))/(1000**3))),2)))
+# #Stage
+# print(' ')
+# #Off-axis
+# print('---------------------------------------------Off Axis---------------------------------------------')
+# print('GRB Off Axis ' + str(GRBFINALnum_off) + '        TOTAL ' + str(iterations * trials))
+# print(' ')
+# print('GRB STANDARD DEVIATION Off Axis ' + str(GRBSD_off))
+# print(' ')
+# print('GRB Volume Off Axis '+ str(round(((((200)**3) * math.pi * (4/3) * GRBPERCENT_off)/(1000**3)),4)) + ' +/- ' + str(round(((((200)**3) * math.pi * (4/3) * GRBSD_off))/(1000**3),4)))
+# print('All volumes in Gpc^3')
+# print(' ')
+# print('GRB percent detection Off Axis ' + str(round(100 * ((((200)**3) * math.pi * (4/3) * GRBPERCENT_off)/(1000**3))/(((((200)**3) * math.pi * (4/3))/(1000**3))),2)))
+# #Structured Simulation
+# print(' ')
+# print('---------------------------------------------Structured Simulation---------------------------------------------')
+# print('GRB PERCENT Structured Simulation ' + str(GRBPERCENT_struc_sim))
+# print(' ')
+# print('GRB Structured Simulation ' + str(GRBFINALnum_struc_sim) + '        TOTAL ' + str(iterations * trials))
+# print(' ')
+# print('GRB STANDARD DEVIATION Structured Simulation ' + str(GRBSD_struc_sim))
+# print(' ')
+# print('GRB Volume Structured Simulation '+ str(round((((200)**3) * math.pi * (4/3) * GRBPERCENT_struc_sim)/(1000**3),4)) + ' +/- ' + str(round(((((200)**3) * math.pi * (4/3) * GRBSD_struc_sim))/(1000**3),4)))
+# print('All volumes in Gpc^3')
+# print(' ')
+# print('GRB percent detection Structured Simulation ' + str(round(100 * ((((200)**3) * math.pi * (4/3) * GRBPERCENT_struc_sim)/(1000**3))/(((((200)**3) * math.pi * (4/3))/(1000**3))),2)))
+# #Structured Best
+# print(' ')
+# print('---------------------------------------------Structured Best---------------------------------------------')
+# print('GRB PERCENT Structured Best ' + str(GRBPERCENT_struc_best))
+# print(' ')
+# print('GRB Structured Best ' + '        TOTAL ' + str(iterations * trials))
+# print(' ')
+
+# print('GRB Volume Structured Best '+ str(round((((200)**3) * math.pi * (4/3) * GRBPERCENT_struc_best)/(1000**3),4)) + ' +/- ' + str(round(((((200)**3) * math.pi * (4/3) * GRBSD_struc_best))/(1000**3),4)))
+# print('All volumes in Gpc^3')
+# print(' ')
+# print('GRB percent detection Structured Best ' + str(round(100 * ((((200)**3) * math.pi * (4/3) * GRBPERCENT_struc_best)/(1000**3))/(((((200)**3) * math.pi * (4/3))/(1000**3))),2)))
 
 
-'''------DATA DISPLAY------'''
-'''------GRAPHS------'''
-'''
-thetaobs_struc = thetaobs
-for u in range(0,len(thetaobs)):
-    thetaobs[u] = math.degrees(thetaobs[u])
-off_axis_graph = plt.scatter(thetaobs,fluence_off, label = 'Off Axis')
-ax = plt.subplot(111)
-plt.title('Theta vs Fluence at 100 Mpc')
-plt.xlabel('Thetaobs (degrees)')
-plt.ylabel('Fluence (erg/cm^2)')
-plt.yscale('log')
-plt.xlim(0, math.pi)
-axes = plt.gca()
-axes.set_xlim([0,38])
-axes.set_ylim([1e-10,10])
+# '''------DATA DISPLAY------'''
+# '''------GRAPHS------'''
+# '''
+# thetaobs_struc = thetaobs
+# for u in range(0,len(thetaobs)):
+#     thetaobs[u] = math.degrees(thetaobs[u])
+# off_axis_graph = plt.scatter(thetaobs,fluence_off, label = 'Off Axis')
+# ax = plt.subplot(111)
+# plt.title('Theta vs Fluence at 100 Mpc')
+# plt.xlabel('Thetaobs (degrees)')
+# plt.ylabel('Fluence (erg/cm^2)')
+# plt.yscale('log')
+# plt.xlim(0, math.pi)
+# axes = plt.gca()
+# axes.set_xlim([0,38])
+# axes.set_ylim([1e-10,10])
 
-structured_jet_sim_graph = plt.scatter(thetaobs, fluence_struc_sim, label = 'Structured Jet Simulation Data')
+# structured_jet_sim_graph = plt.scatter(thetaobs, fluence_struc_sim, label = 'Structured Jet Simulation Data')
 
-structured_jet_best_graph = plt.scatter(thetaobs, fluence_struc_best, label = 'Structured Jet Best Fit')
-pylab.legend(loc='upper right')
-plt.show()
-'''
-'''------GRAPHS------'''
+# structured_jet_best_graph = plt.scatter(thetaobs, fluence_struc_best, label = 'Structured Jet Best Fit')
+# pylab.legend(loc='upper right')
+# plt.show()
+# '''
+# '''------GRAPHS------'''

@@ -1,0 +1,1286 @@
+
+---------------------------------------------design---------------------------------------------
+---------------------------------------------8e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1621882        GRB PERCENT Off Axis 0.288888        GWGRB PERCENT Off Axis 0.0601873
+
+GW 1621882        GRB Off Axis 2888880        GWGRB Off Axis 601873        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03683041332313537        GRB STANDARD DEVIATION Off Axis 0.04536924111861779        GWGRB STANDARD DEVIATION Off Axis 0.023708807219810998
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Off Axis 0.1103 +/- 0.0173
+GWGRB Volume Off Axis 0.023 +/- 0.009
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 37.11
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1621882        GRB PERCENT Structured Simulation 0.288888        GWGRB PERCENT Structured Simulation 0.0601873
+
+GW 1621882        GRB Structured Simulation 2888880        GWGRB Structured Simulation 601873        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03683041332313537        GRB STANDARD DEVIATION Structured Simulation 0.04536924111861779        GWGRB STANDARD DEVIATION Structured Simulation 0.023708807219810998
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Structured Simulation 0.1103 +/- 0.0173
+GWGRB Volume Structured Simulation 0.023 +/- 0.009
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 37.11
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1621882        GRB PERCENT Structured Best 0.2432597        GWGRB PERCENT Structured Best 0.0582113
+
+GW 1621882        GRB Structured Best 2432597        GWGRB Structured Best 582113        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.03683041332313537        GRB STANDARD DEVIATION Structured Best 0.04296493705066649        GWGRB STANDARD DEVIATION Structured Best 0.02336871869144701
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Structured Best 0.0929 +/- 0.0164
+GWGRB Volume Structured Best 0.0222 +/- 0.0089
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 35.89
+
+---------------------------------------------mid low---------------------------------------------
+---------------------------------------------8e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.0695147        GRB PERCENT Off Axis 0.2868603        GWGRB PERCENT Off Axis 0.0256327
+
+GW 695147        GRB Off Axis 2868603        GWGRB Off Axis 256327        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.025522421473088266        GRB STANDARD DEVIATION Off Axis 0.045268618008378066        GWGRB STANDARD DEVIATION Off Axis 0.01586285620598601
+
+GW Volume 0.0265 +/- 0.0097
+GRB Volume Off Axis 0.1095 +/- 0.0173
+GWGRB Volume Off Axis 0.0098 +/- 0.0061
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.87
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.0695147        GRB PERCENT Structured Simulation 0.2868603        GWGRB PERCENT Structured Simulation 0.0256327
+
+GW 695147        GRB Structured Simulation 2868603        GWGRB Structured Simulation 256327        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.025522421473088266        GRB STANDARD DEVIATION Structured Simulation 0.045268618008378066        GWGRB STANDARD DEVIATION Structured Simulation 0.01586285620598601
+
+GW Volume 0.0265 +/- 0.0097
+GRB Volume Structured Simulation 0.1095 +/- 0.0173
+GWGRB Volume Structured Simulation 0.0098 +/- 0.0061
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.87
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.0695147        GRB PERCENT Structured Best 0.2415468        GWGRB PERCENT Structured Best 0.0261054
+
+GW 695147        GRB Structured Best 2415468        GWGRB Structured Best 261054        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.025522421473088266        GRB STANDARD DEVIATION Structured Best 0.04279565076543162        GWGRB STANDARD DEVIATION Structured Best 0.01600826828507071
+
+GW Volume 0.0265 +/- 0.0097
+GRB Volume Structured Best 0.0922 +/- 0.0163
+GWGRB Volume Structured Best 0.01 +/- 0.0061
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 37.55
+
+---------------------------------------------mid mid---------------------------------------------
+---------------------------------------------8e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.0849807        GRB PERCENT Off Axis 0.287394        GWGRB PERCENT Off Axis 0.0313903
+
+GW 849807        GRB Off Axis 2873940        GWGRB Off Axis 313903        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.02791532590109389        GRB STANDARD DEVIATION Off Axis 0.045350317865629916        GWGRB STANDARD DEVIATION Off Axis 0.01752863766643774
+
+GW Volume 0.0324 +/- 0.0107
+GRB Volume Off Axis 0.1097 +/- 0.0173
+GWGRB Volume Off Axis 0.012 +/- 0.0067
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.94
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.0849807        GRB PERCENT Structured Simulation 0.287394        GWGRB PERCENT Structured Simulation 0.0313903
+
+GW 849807        GRB Structured Simulation 2873940        GWGRB Structured Simulation 313903        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.02791532590109389        GRB STANDARD DEVIATION Structured Simulation 0.045350317865629916        GWGRB STANDARD DEVIATION Structured Simulation 0.01752863766643774
+
+GW Volume 0.0324 +/- 0.0107
+GRB Volume Structured Simulation 0.1097 +/- 0.0173
+GWGRB Volume Structured Simulation 0.012 +/- 0.0067
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.94
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.0849807        GRB PERCENT Structured Best 0.2419484        GWGRB PERCENT Structured Best 0.0316061
+
+GW 849807        GRB Structured Best 2419484        GWGRB Structured Best 316061        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.02791532590109389        GRB STANDARD DEVIATION Structured Best 0.04285963260366871        GWGRB STANDARD DEVIATION Structured Best 0.017566574186096837
+
+GW Volume 0.0324 +/- 0.0107
+GRB Volume Structured Best 0.0924 +/- 0.0164
+GWGRB Volume Structured Best 0.0121 +/- 0.0067
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 37.19
+
+
+---------------------------------------------mid high---------------------------------------------
+---------------------------------------------8e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1005891        GRB PERCENT Off Axis 0.2828481        GWGRB PERCENT Off Axis 0.0364312
+
+GW 1005891        GRB Off Axis 2828481        GWGRB Off Axis 364312        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.030089583164608434        GRB STANDARD DEVIATION Off Axis 0.045219948859191436        GWGRB STANDARD DEVIATION Off Axis 0.01877123304825429
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Off Axis 0.108 +/- 0.0173
+GWGRB Volume Off Axis 0.0139 +/- 0.0072
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.22
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1005891        GRB PERCENT Structured Simulation 0.2828481        GWGRB PERCENT Structured Simulation 0.0364312
+
+GW 1005891        GRB Structured Simulation 2828481        GWGRB Structured Simulation 364312        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.030089583164608434        GRB STANDARD DEVIATION Structured Simulation 0.045219948859191436        GWGRB STANDARD DEVIATION Structured Simulation 0.01877123304825429
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Structured Simulation 0.108 +/- 0.0173
+GWGRB Volume Structured Simulation 0.0139 +/- 0.0072
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.22
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1005891        GRB PERCENT Structured Best 0.2381142        GWGRB PERCENT Structured Best 0.0363233
+
+GW 1005891        GRB Structured Best 2381142        GWGRB Structured Best 363233        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.030089583164608434        GRB STANDARD DEVIATION Structured Best 0.0426992504690532        GWGRB STANDARD DEVIATION Structured Best 0.0187486104075496
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Structured Best 0.0909 +/- 0.0163
+GWGRB Volume Structured Best 0.0139 +/- 0.0072
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 36.11
+
+---------------------------------------------late low---------------------------------------------
+---------------------------------------------8e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.0955753        GRB PERCENT Off Axis 0.2831815        GWGRB PERCENT Off Axis 0.0347059
+
+GW 955753        GRB Off Axis 2831815        GWGRB Off Axis 347059        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.02931903180472612        GRB STANDARD DEVIATION Off Axis 0.04502893884829042        GWGRB STANDARD DEVIATION Off Axis 0.018271038380412465
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Off Axis 0.1081 +/- 0.0172
+GWGRB Volume Off Axis 0.0132 +/- 0.007
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.31
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.0955753        GRB PERCENT Structured Simulation 0.2831815        GWGRB PERCENT Structured Simulation 0.0347059
+
+GW 955753        GRB Structured Simulation 2831815        GWGRB Structured Simulation 347059        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.02931903180472612        GRB STANDARD DEVIATION Structured Simulation 0.04502893884829042        GWGRB STANDARD DEVIATION Structured Simulation 0.018271038380412465
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Structured Simulation 0.1081 +/- 0.0172
+GWGRB Volume Structured Simulation 0.0132 +/- 0.007
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.31
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.0955753        GRB PERCENT Structured Best 0.2384207        GWGRB PERCENT Structured Best 0.0346978
+
+GW 955753        GRB Structured Best 2384207        GWGRB Structured Best 346978        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.02931903180472612        GRB STANDARD DEVIATION Structured Best 0.042616979873991226        GWGRB STANDARD DEVIATION Structured Best 0.01825639636182208
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Structured Best 0.091 +/- 0.0163
+GWGRB Volume Structured Best 0.0132 +/- 0.007
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 36.3
+
+---------------------------------------------late mid---------------------------------------------
+---------------------------------------------8e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1181732        GRB PERCENT Off Axis 0.2852794        GWGRB PERCENT Off Axis 0.0431429
+
+GW 1181732        GRB Off Axis 2852794        GWGRB Off Axis 431429        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03223450313548982        GRB STANDARD DEVIATION Off Axis 0.045229751192596396        GWGRB STANDARD DEVIATION Off Axis 0.020340484678181347
+
+GW Volume 0.0451 +/- 0.0123
+GRB Volume Off Axis 0.1089 +/- 0.0173
+GWGRB Volume Off Axis 0.0165 +/- 0.0078
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.51
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1181732        GRB PERCENT Structured Simulation 0.2852794        GWGRB PERCENT Structured Simulation 0.0431429
+
+GW 1181732        GRB Structured Simulation 2852794        GWGRB Structured Simulation 431429        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03223450313548982        GRB STANDARD DEVIATION Structured Simulation 0.045229751192596396        GWGRB STANDARD DEVIATION Structured Simulation 0.020340484678181347
+
+GW Volume 0.0451 +/- 0.0123
+GRB Volume Structured Simulation 0.1089 +/- 0.0173
+GWGRB Volume Structured Simulation 0.0165 +/- 0.0078
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.51
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1181732        GRB PERCENT Structured Best 0.2401799        GWGRB PERCENT Structured Best 0.0425939
+
+GW 1181732        GRB Structured Best 2401799        GWGRB Structured Best 425939        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.03223450313548982        GRB STANDARD DEVIATION Structured Best 0.04279991769056171        GWGRB STANDARD DEVIATION Structured Best 0.020225992526888205
+
+GW Volume 0.0451 +/- 0.0123
+GRB Volume Structured Best 0.0917 +/- 0.0163
+GWGRB Volume Structured Best 0.0163 +/- 0.0077
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 36.04
+
+---------------------------------------------late high---------------------------------------------
+---------------------------------------------8e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1409875        GRB PERCENT Off Axis 0.2843762        GWGRB PERCENT Off Axis 0.0515175
+
+GW 1409875        GRB Off Axis 2843762        GWGRB Off Axis 515175        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03467607053933609        GRB STANDARD DEVIATION Off Axis 0.04502307346608486        GWGRB STANDARD DEVIATION Off Axis 0.022120648430396253
+
+GW Volume 0.0538 +/- 0.0132
+GRB Volume Off Axis 0.1085 +/- 0.0172
+GWGRB Volume Off Axis 0.0197 +/- 0.0084
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.54
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1409875        GRB PERCENT Structured Simulation 0.2843762        GWGRB PERCENT Structured Simulation 0.0515175
+
+GW 1409875        GRB Structured Simulation 2843762        GWGRB Structured Simulation 515175        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03467607053933609        GRB STANDARD DEVIATION Structured Simulation 0.04502307346608486        GWGRB STANDARD DEVIATION Structured Simulation 0.022120648430396253
+
+GW Volume 0.0538 +/- 0.0132
+GRB Volume Structured Simulation 0.1085 +/- 0.0172
+GWGRB Volume Structured Simulation 0.0197 +/- 0.0084
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.54
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1409875        GRB PERCENT Structured Best 0.2394569        GWGRB PERCENT Structured Best 0.0502989
+
+GW 1409875        GRB Structured Best 2394569        GWGRB Structured Best 502989        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.03467607053933609        GRB STANDARD DEVIATION Structured Best 0.04260690314810849        GWGRB STANDARD DEVIATION Structured Best 0.021883839878195595
+
+GW Volume 0.0538 +/- 0.0132
+GRB Volume Structured Best 0.0914 +/- 0.0163
+GWGRB Volume Structured Best 0.0192 +/- 0.0084
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 35.68
+
+---------------------------------------------3rd generation---------------------------------------------
+---------------------------------------------8e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.8177719        GRB PERCENT Off Axis 0.2856734        GWGRB PERCENT Off Axis 0.2259918
+
+GW 8177719        GRB Off Axis 2856734        GWGRB Off Axis 2259918        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.038602946419469875        GRB STANDARD DEVIATION Off Axis 0.04504718442841035        GWGRB STANDARD DEVIATION Off Axis 0.04160756715619133
+
+GW Volume 0.3121 +/- 0.0147
+GRB Volume Off Axis 0.109 +/- 0.0172
+GWGRB Volume Off Axis 0.0863 +/- 0.0159
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 27.64
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.8177719        GRB PERCENT Structured Simulation 0.2856734        GWGRB PERCENT Structured Simulation 0.2259918
+
+GW 8177719        GRB Structured Simulation 2856734        GWGRB Structured Simulation 2259918        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.038602946419469875        GRB STANDARD DEVIATION Structured Simulation 0.04504718442841035        GWGRB STANDARD DEVIATION Structured Simulation 0.04160756715619133
+
+GW Volume 0.3121 +/- 0.0147
+GRB Volume Structured Simulation 0.109 +/- 0.0172
+GWGRB Volume Structured Simulation 0.0863 +/- 0.0159
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 27.64
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.8177719        GRB PERCENT Structured Best 0.2406214        GWGRB PERCENT Structured Best 0.1926745
+
+GW 8177719        GRB Structured Best 2406214        GWGRB Structured Best 1926745        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.038602946419469875        GRB STANDARD DEVIATION Structured Best 0.04260084518364402        GWGRB STANDARD DEVIATION Structured Best 0.039287192373394494
+
+GW Volume 0.3121 +/- 0.0147
+GRB Volume Structured Best 0.0918 +/- 0.0163
+GWGRB Volume Structured Best 0.0735 +/- 0.015
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 23.56
+
+---------------------------------------------design---------------------------------------------
+---------------------------------------------1e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1622621        GRB PERCENT Off Axis 0.2807841        GWGRB PERCENT Off Axis 0.0591428
+
+GW 1622621        GRB Off Axis 2807841        GWGRB Off Axis 591428        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03684108408074202        GRB STANDARD DEVIATION Off Axis 0.04502764108937708        GWGRB STANDARD DEVIATION Off Axis 0.02347753649996186
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Off Axis 0.1072 +/- 0.0172
+GWGRB Volume Off Axis 0.0226 +/- 0.009
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.45
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1622621        GRB PERCENT Structured Simulation 0.2640743        GWGRB PERCENT Structured Simulation 0.0591428
+
+GW 1622621        GRB Structured Simulation 2640743        GWGRB Structured Simulation 591428        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03684108408074202        GRB STANDARD DEVIATION Structured Simulation 0.04410914344752715        GWGRB STANDARD DEVIATION Structured Simulation 0.02347753649996186
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Structured Simulation 0.1008 +/- 0.0168
+GWGRB Volume Structured Simulation 0.0226 +/- 0.009
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.45
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1622621        GRB PERCENT Structured Best 0.2151259        GWGRB PERCENT Structured Best 0.0532
+
+GW 1622621        GRB Structured Best 2151259        GWGRB Structured Best 532000        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.03684108408074202        GRB STANDARD DEVIATION Structured Best 0.04109371042045564        GWGRB STANDARD DEVIATION Structured Best 0.022339225376229906
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Structured Best 0.0821 +/- 0.0157
+GWGRB Volume Structured Best 0.0203 +/- 0.0085
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 32.79
+
+---------------------------------------------mid low---------------------------------------------
+---------------------------------------------1e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.069599        GRB PERCENT Off Axis 0.286627        GWGRB PERCENT Off Axis 0.0259442
+
+GW 695990        GRB Off Axis 2866270        GWGRB Off Axis 259442        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.025387706559606753        GRB STANDARD DEVIATION Off Axis 0.045255887483888924        GWGRB STANDARD DEVIATION Off Axis 0.01585140369273752
+
+GW Volume 0.0266 +/- 0.0097
+GRB Volume Off Axis 0.1094 +/- 0.0173
+GWGRB Volume Off Axis 0.0099 +/- 0.0061
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 37.28
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.069599        GRB PERCENT Structured Simulation 0.2695126        GWGRB PERCENT Structured Simulation 0.0259442
+
+GW 695990        GRB Structured Simulation 2695126        GWGRB Structured Simulation 259442        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.025387706559606753        GRB STANDARD DEVIATION Structured Simulation 0.044401488220117274        GWGRB STANDARD DEVIATION Structured Simulation 0.01585140369273752
+
+GW Volume 0.0266 +/- 0.0097
+GRB Volume Structured Simulation 0.1029 +/- 0.0169
+GWGRB Volume Structured Simulation 0.0099 +/- 0.0061
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 37.28
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.069599        GRB PERCENT Structured Best 0.2196967        GWGRB PERCENT Structured Best 0.0247867
+
+GW 695990        GRB Structured Best 2196967        GWGRB Structured Best 247867        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.025387706559606753        GRB STANDARD DEVIATION Structured Best 0.04127815460954526        GWGRB STANDARD DEVIATION Structured Best 0.015513894092682981
+
+GW Volume 0.0266 +/- 0.0097
+GRB Volume Structured Best 0.0839 +/- 0.0158
+GWGRB Volume Structured Best 0.0095 +/- 0.0059
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 35.61
+
+---------------------------------------------mid mid---------------------------------------------
+---------------------------------------------1e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.0849952        GRB PERCENT Off Axis 0.2831359        GWGRB PERCENT Off Axis 0.0313164
+
+GW 849952        GRB Off Axis 2831359        GWGRB Off Axis 313164        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.027764432023664343        GRB STANDARD DEVIATION Off Axis 0.04509915154992273        GWGRB STANDARD DEVIATION Off Axis 0.017326571880804102
+
+GW Volume 0.0324 +/- 0.0106
+GRB Volume Off Axis 0.1081 +/- 0.0172
+GWGRB Volume Off Axis 0.012 +/- 0.0066
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.84
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.0849952        GRB PERCENT Structured Simulation 0.2661601        GWGRB PERCENT Structured Simulation 0.0313164
+
+GW 849952        GRB Structured Simulation 2661601        GWGRB Structured Simulation 313164        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.027764432023664343        GRB STANDARD DEVIATION Structured Simulation 0.044213275338156444        GWGRB STANDARD DEVIATION Structured Simulation 0.017326571880804102
+
+GW Volume 0.0324 +/- 0.0106
+GRB Volume Structured Simulation 0.1016 +/- 0.0169
+GWGRB Volume Structured Simulation 0.012 +/- 0.0066
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.84
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.0849952        GRB PERCENT Structured Best 0.2168737        GWGRB PERCENT Structured Best 0.029543
+
+GW 849952        GRB Structured Best 2168737        GWGRB Structured Best 295430        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.027764432023664343        GRB STANDARD DEVIATION Structured Best 0.04124383904114426        GWGRB STANDARD DEVIATION Structured Best 0.01682747701349309
+
+GW Volume 0.0324 +/- 0.0106
+GRB Volume Structured Best 0.0828 +/- 0.0157
+GWGRB Volume Structured Best 0.0113 +/- 0.0064
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 34.76
+
+---------------------------------------------mid high---------------------------------------------
+---------------------------------------------1e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1005388        GRB PERCENT Off Axis 0.2827008        GWGRB PERCENT Off Axis 0.0368983
+
+GW 1005388        GRB Off Axis 2827008        GWGRB Off Axis 368983        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.030144498361522283        GRB STANDARD DEVIATION Off Axis 0.04483917689787553        GWGRB STANDARD DEVIATION Off Axis 0.018881314100200816
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Off Axis 0.1079 +/- 0.0171
+GWGRB Volume Off Axis 0.0141 +/- 0.0072
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.7
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1005388        GRB PERCENT Structured Simulation 0.2657486        GWGRB PERCENT Structured Simulation 0.0368983
+
+GW 1005388        GRB Structured Simulation 2657486        GWGRB Structured Simulation 368983        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.030144498361522283        GRB STANDARD DEVIATION Structured Simulation 0.04400621505549337        GWGRB STANDARD DEVIATION Structured Simulation 0.018881314100200816
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Structured Simulation 0.1014 +/- 0.0168
+GWGRB Volume Structured Simulation 0.0141 +/- 0.0072
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.7
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1005388        GRB PERCENT Structured Best 0.21668        GWGRB PERCENT Structured Best 0.0343956
+
+GW 1005388        GRB Structured Best 2166800        GWGRB Structured Best 343956        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.030144498361522283        GRB STANDARD DEVIATION Structured Best 0.04099512661285323        GWGRB STANDARD DEVIATION Structured Best 0.018256944810132354
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Structured Best 0.0827 +/- 0.0156
+GWGRB Volume Structured Best 0.0131 +/- 0.007
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 34.21
+
+---------------------------------------------late low---------------------------------------------
+---------------------------------------------1e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.0956753        GRB PERCENT Off Axis 0.2868856        GWGRB PERCENT Off Axis 0.0356283
+
+GW 956753        GRB Off Axis 2868856        GWGRB Off Axis 356283        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.02942030974440154        GRB STANDARD DEVIATION Off Axis 0.045114353211466104        GWGRB STANDARD DEVIATION Off Axis 0.018563908136400183
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Off Axis 0.1095 +/- 0.0172
+GWGRB Volume Off Axis 0.0136 +/- 0.0071
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 37.24
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.0956753        GRB PERCENT Structured Simulation 0.26965        GWGRB PERCENT Structured Simulation 0.0356283
+
+GW 956753        GRB Structured Simulation 2696500        GWGRB Structured Simulation 356283        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.02942030974440154        GRB STANDARD DEVIATION Structured Simulation 0.04431138832164448        GWGRB STANDARD DEVIATION Structured Simulation 0.018563908136400183
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Structured Simulation 0.1029 +/- 0.0169
+GWGRB Volume Structured Simulation 0.0136 +/- 0.0071
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 37.24
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.0956753        GRB PERCENT Structured Best 0.2197325        GWGRB PERCENT Structured Best 0.0333249
+
+GW 956753        GRB Structured Best 2197325        GWGRB Structured Best 333249        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.02942030974440154        GRB STANDARD DEVIATION Structured Best 0.04125913798075418        GWGRB STANDARD DEVIATION Structured Best 0.01795904410770396
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Structured Best 0.0839 +/- 0.0157
+GWGRB Volume Structured Best 0.0127 +/- 0.0069
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 34.83
+
+---------------------------------------------late mid---------------------------------------------
+---------------------------------------------1e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1182506        GRB PERCENT Off Axis 0.2809836        GWGRB PERCENT Off Axis 0.0431324
+
+GW 1182506        GRB Off Axis 2809836        GWGRB Off Axis 431324        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.0323171168825509        GRB STANDARD DEVIATION Off Axis 0.04494884575856808        GWGRB STANDARD DEVIATION Off Axis 0.02035903276538668
+
+GW Volume 0.0451 +/- 0.0123
+GRB Volume Off Axis 0.1073 +/- 0.0172
+GWGRB Volume Off Axis 0.0165 +/- 0.0078
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.48
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1182506        GRB PERCENT Structured Simulation 0.2641853        GWGRB PERCENT Structured Simulation 0.0431324
+
+GW 1182506        GRB Structured Simulation 2641853        GWGRB Structured Simulation 431324        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.0323171168825509        GRB STANDARD DEVIATION Structured Simulation 0.04405966042137014        GWGRB STANDARD DEVIATION Structured Simulation 0.02035903276538668
+
+GW Volume 0.0451 +/- 0.0123
+GRB Volume Structured Simulation 0.1008 +/- 0.0168
+GWGRB Volume Structured Simulation 0.0165 +/- 0.0078
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.48
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1182506        GRB PERCENT Structured Best 0.2153176        GWGRB PERCENT Structured Best 0.0397445
+
+GW 1182506        GRB Structured Best 2153176        GWGRB Structured Best 397445        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.0323171168825509        GRB STANDARD DEVIATION Structured Best 0.041157187335638355        GWGRB STANDARD DEVIATION Structured Best 0.019607742460200098
+
+GW Volume 0.0451 +/- 0.0123
+GRB Volume Structured Best 0.0822 +/- 0.0157
+GWGRB Volume Structured Best 0.0152 +/- 0.0075
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 33.61
+
+---------------------------------------------late high---------------------------------------------
+---------------------------------------------1e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1410717        GRB PERCENT Off Axis 0.2836513        GWGRB PERCENT Off Axis 0.0519351
+
+GW 1410717        GRB Off Axis 2836513        GWGRB Off Axis 519351        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.034827124319940554        GRB STANDARD DEVIATION Off Axis 0.045154749449242595        GWGRB STANDARD DEVIATION Off Axis 0.022134662577568295
+
+GW Volume 0.0538 +/- 0.0133
+GRB Volume Off Axis 0.1083 +/- 0.0172
+GWGRB Volume Off Axis 0.0198 +/- 0.0084
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.81
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1410717        GRB PERCENT Structured Simulation 0.2666788        GWGRB PERCENT Structured Simulation 0.0519351
+
+GW 1410717        GRB Structured Simulation 2666788        GWGRB Structured Simulation 519351        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.034827124319940554        GRB STANDARD DEVIATION Structured Simulation 0.044306560025266735        GWGRB STANDARD DEVIATION Structured Simulation 0.022134662577568295
+
+GW Volume 0.0538 +/- 0.0133
+GRB Volume Structured Simulation 0.1018 +/- 0.0169
+GWGRB Volume Structured Simulation 0.0198 +/- 0.0084
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.81
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1410717        GRB PERCENT Structured Best 0.2173731        GWGRB PERCENT Structured Best 0.0472053
+
+GW 1410717        GRB Structured Best 2173731        GWGRB Structured Best 472053        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.034827124319940554        GRB STANDARD DEVIATION Structured Best 0.04136522098580346        GWGRB STANDARD DEVIATION Structured Best 0.021149778368610327
+
+GW Volume 0.0538 +/- 0.0133
+GRB Volume Structured Best 0.083 +/- 0.0158
+GWGRB Volume Structured Best 0.018 +/- 0.0081
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 33.46
+
+---------------------------------------------3rd generation---------------------------------------------
+---------------------------------------------1e+51---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.8174341        GRB PERCENT Off Axis 0.2844843        GWGRB PERCENT Off Axis 0.2263264
+
+GW 8174341        GRB Off Axis 2844843        GWGRB Off Axis 2263264        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.038715967590273286        GRB STANDARD DEVIATION Off Axis 0.04502972718407934        GWGRB STANDARD DEVIATION Off Axis 0.04176012574360372
+
+GW Volume 0.312 +/- 0.0148
+GRB Volume Off Axis 0.1086 +/- 0.0172
+GWGRB Volume Off Axis 0.0864 +/- 0.0159
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 27.69
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.8174341        GRB PERCENT Structured Simulation 0.2674577        GWGRB PERCENT Structured Simulation 0.2149945
+
+GW 8174341        GRB Structured Simulation 2674577        GWGRB Structured Simulation 2149945        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.038715967590273286        GRB STANDARD DEVIATION Structured Simulation 0.04422360532546577        GWGRB STANDARD DEVIATION Structured Simulation 0.041009203690120725
+
+GW Volume 0.312 +/- 0.0148
+GRB Volume Structured Simulation 0.1021 +/- 0.0169
+GWGRB Volume Structured Simulation 0.0821 +/- 0.0157
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 26.3
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.8174341        GRB PERCENT Structured Best 0.2179447        GWGRB PERCENT Structured Best 0.1753403
+
+GW 8174341        GRB Structured Best 2179447        GWGRB Structured Best 1753403        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.038715967590273286        GRB STANDARD DEVIATION Structured Best 0.04125609970133786        GWGRB STANDARD DEVIATION Structured Best 0.037980160884812826
+
+GW Volume 0.312 +/- 0.0148
+GRB Volume Structured Best 0.0832 +/- 0.0157
+GWGRB Volume Structured Best 0.0669 +/- 0.0145
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 21.45
+
+
+---------------------------------------------design---------------------------------------------
+---------------------------------------------1e+50---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1622864        GRB PERCENT Off Axis 0.2060818        GWGRB PERCENT Off Axis 0.060547
+
+GW 1622864        GRB Off Axis 2060818        GWGRB Off Axis 605470        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03699121596460731        GRB STANDARD DEVIATION Off Axis 0.040447893258858246        GWGRB STANDARD DEVIATION Off Axis 0.023891891913878326
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Off Axis 0.0787 +/- 0.0154
+GWGRB Volume Off Axis 0.0231 +/- 0.0091
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 37.31
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1622864        GRB PERCENT Structured Simulation 0.1802141        GWGRB PERCENT Structured Simulation 0.0596797
+
+GW 1622864        GRB Structured Simulation 1802141        GWGRB Structured Simulation 596797        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03699121596460731        GRB STANDARD DEVIATION Structured Simulation 0.03844325610597094        GWGRB STANDARD DEVIATION Structured Simulation 0.023729349732556897
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Structured Simulation 0.0688 +/- 0.0147
+GWGRB Volume Structured Simulation 0.0228 +/- 0.0091
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.77
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1622864        GRB PERCENT Structured Best 0.1887085        GWGRB PERCENT Structured Best 0.0493127
+
+GW 1622864        GRB Structured Best 1887085        GWGRB Structured Best 493127        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.03699121596460731        GRB STANDARD DEVIATION Structured Best 0.039096423276974275        GWGRB STANDARD DEVIATION Structured Best 0.021668440505109073
+
+GW Volume 0.0619 +/- 0.0141
+GRB Volume Structured Best 0.072 +/- 0.0149
+GWGRB Volume Structured Best 0.0188 +/- 0.0083
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 30.39
+
+---------------------------------------------mid low---------------------------------------------
+---------------------------------------------1e+50---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.0695158        GRB PERCENT Off Axis 0.2039696        GWGRB PERCENT Off Axis 0.025633
+
+GW 695158        GRB Off Axis 2039696        GWGRB Off Axis 256330        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.02537719429684183        GRB STANDARD DEVIATION Off Axis 0.04029236293127328        GWGRB STANDARD DEVIATION Off Axis 0.015846192666319682
+
+GW Volume 0.0265 +/- 0.0097
+GRB Volume Off Axis 0.0779 +/- 0.0154
+GWGRB Volume Off Axis 0.0098 +/- 0.006
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.87
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.0695158        GRB PERCENT Structured Simulation 0.1783614        GWGRB PERCENT Structured Simulation 0.025633
+
+GW 695158        GRB Structured Simulation 1783614        GWGRB Structured Simulation 256330        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.02537719429684183        GRB STANDARD DEVIATION Structured Simulation 0.03829699278841209        GWGRB STANDARD DEVIATION Structured Simulation 0.015846192666319682
+
+GW Volume 0.0265 +/- 0.0097
+GRB Volume Structured Simulation 0.0681 +/- 0.0146
+GWGRB Volume Structured Simulation 0.0098 +/- 0.006
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.87
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.0695158        GRB PERCENT Structured Best 0.1868867        GWGRB PERCENT Structured Best 0.0225198
+
+GW 695158        GRB Structured Best 1868867        GWGRB Structured Best 225198        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.02537719429684183        GRB STANDARD DEVIATION Structured Best 0.03909452195547122        GWGRB STANDARD DEVIATION Structured Best 0.014886262928222562
+
+GW Volume 0.0265 +/- 0.0097
+GRB Volume Structured Best 0.0713 +/- 0.0149
+GWGRB Volume Structured Best 0.0086 +/- 0.0057
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 32.4
+
+---------------------------------------------mid mid---------------------------------------------
+---------------------------------------------1e+50---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.0849444        GRB PERCENT Off Axis 0.2026182        GWGRB PERCENT Off Axis 0.0311181
+
+GW 849444        GRB Off Axis 2026182        GWGRB Off Axis 311181        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.027899725672258853        GRB STANDARD DEVIATION Off Axis 0.04004314002786282        GWGRB STANDARD DEVIATION Off Axis 0.017321600756523406
+
+GW Volume 0.0324 +/- 0.0106
+GRB Volume Off Axis 0.0773 +/- 0.0153
+GWGRB Volume Off Axis 0.0119 +/- 0.0066
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.63
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.0849444        GRB PERCENT Structured Simulation 0.1771483        GWGRB PERCENT Structured Simulation 0.0311181
+
+GW 849444        GRB Structured Simulation 1771483        GWGRB Structured Simulation 311181        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.027899725672258853        GRB STANDARD DEVIATION Structured Simulation 0.038050719910179984        GWGRB STANDARD DEVIATION Structured Simulation 0.017321600756523406
+
+GW Volume 0.0324 +/- 0.0106
+GRB Volume Structured Simulation 0.0676 +/- 0.0145
+GWGRB Volume Structured Simulation 0.0119 +/- 0.0066
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.63
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.0849444        GRB PERCENT Structured Best 0.185478        GWGRB PERCENT Structured Best 0.0268452
+
+GW 849444        GRB Structured Best 1854780        GWGRB Structured Best 268452        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.027899725672258853        GRB STANDARD DEVIATION Structured Best 0.03871801269235933        GWGRB STANDARD DEVIATION Structured Best 0.016113467454216955
+
+GW Volume 0.0324 +/- 0.0106
+GRB Volume Structured Best 0.0708 +/- 0.0148
+GWGRB Volume Structured Best 0.0102 +/- 0.0062
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 31.6
+
+---------------------------------------------mid high---------------------------------------------
+---------------------------------------------1e+50---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.100478        GRB PERCENT Off Axis 0.2029988        GWGRB PERCENT Off Axis 0.0369426
+
+GW 1004780        GRB Off Axis 2029988        GWGRB Off Axis 369426        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.030072987211875946        GRB STANDARD DEVIATION Off Axis 0.04036911561100139        GWGRB STANDARD DEVIATION Off Axis 0.018876066017544213
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Off Axis 0.0775 +/- 0.0154
+GWGRB Volume Off Axis 0.0141 +/- 0.0072
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.77
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.100478        GRB PERCENT Structured Simulation 0.1775982        GWGRB PERCENT Structured Simulation 0.0369404
+
+GW 1004780        GRB Structured Simulation 1775982        GWGRB Structured Simulation 369404        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.030072987211875946        GRB STANDARD DEVIATION Structured Simulation 0.038373429374501083        GWGRB STANDARD DEVIATION Structured Simulation 0.01887533868897989
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Structured Simulation 0.0678 +/- 0.0146
+GWGRB Volume Structured Simulation 0.0141 +/- 0.0072
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.76
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.100478        GRB PERCENT Structured Best 0.1861072        GWGRB PERCENT Structured Best 0.0314882
+
+GW 1004780        GRB Structured Best 1861072        GWGRB Structured Best 314882        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.030072987211875946        GRB STANDARD DEVIATION Structured Best 0.03911515573424812        GWGRB STANDARD DEVIATION Structured Best 0.01750395168649953
+
+GW Volume 0.0384 +/- 0.0115
+GRB Volume Structured Best 0.071 +/- 0.0149
+GWGRB Volume Structured Best 0.012 +/- 0.0067
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 31.34
+
+---------------------------------------------late low---------------------------------------------
+---------------------------------------------1e+50---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.0956576        GRB PERCENT Off Axis 0.2046776        GWGRB PERCENT Off Axis 0.0353532
+
+GW 956576        GRB Off Axis 2046776        GWGRB Off Axis 353532        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.029456310681797642        GRB STANDARD DEVIATION Off Axis 0.04024062936041369        GWGRB STANDARD DEVIATION Off Axis 0.01848887958061949
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Off Axis 0.0781 +/- 0.0154
+GWGRB Volume Off Axis 0.0135 +/- 0.0071
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 36.96
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.0956576        GRB PERCENT Structured Simulation 0.1790393        GWGRB PERCENT Structured Simulation 0.0353526
+
+GW 956576        GRB Structured Simulation 1790393        GWGRB Structured Simulation 353526        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.029456310681797642        GRB STANDARD DEVIATION Structured Simulation 0.03816876503184664        GWGRB STANDARD DEVIATION Structured Simulation 0.018488945120019595
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Structured Simulation 0.0683 +/- 0.0146
+GWGRB Volume Structured Simulation 0.0135 +/- 0.0071
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.96
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.0956576        GRB PERCENT Structured Best 0.1875123        GWGRB PERCENT Structured Best 0.0302532
+
+GW 956576        GRB Structured Best 1875123        GWGRB Structured Best 302532        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.029456310681797642        GRB STANDARD DEVIATION Structured Best 0.038874920724091724        GWGRB STANDARD DEVIATION Structured Best 0.01715787963846448
+
+GW Volume 0.0365 +/- 0.0112
+GRB Volume Structured Best 0.0716 +/- 0.0148
+GWGRB Volume Structured Best 0.0115 +/- 0.0065
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 31.63
+
+---------------------------------------------late mid---------------------------------------------
+---------------------------------------------1e+50---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1182546        GRB PERCENT Off Axis 0.2051399        GWGRB PERCENT Off Axis 0.0438181
+
+GW 1182546        GRB Off Axis 2051399        GWGRB Off Axis 438181        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03240719181140808        GRB STANDARD DEVIATION Off Axis 0.04051736472870674        GWGRB STANDARD DEVIATION Off Axis 0.020512759934326188
+
+GW Volume 0.0451 +/- 0.0124
+GRB Volume Off Axis 0.0783 +/- 0.0155
+GWGRB Volume Off Axis 0.0167 +/- 0.0078
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 37.05
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1182546        GRB PERCENT Structured Simulation 0.1793435        GWGRB PERCENT Structured Simulation 0.0437677
+
+GW 1182546        GRB Structured Simulation 1793435        GWGRB Structured Simulation 437677        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03240719181140808        GRB STANDARD DEVIATION Structured Simulation 0.03842619905060643        GWGRB STANDARD DEVIATION Structured Simulation 0.020499600948457614
+
+GW Volume 0.0451 +/- 0.0124
+GRB Volume Structured Simulation 0.0685 +/- 0.0147
+GWGRB Volume Structured Simulation 0.0167 +/- 0.0078
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 37.01
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1182546        GRB PERCENT Structured Best 0.1878137        GWGRB PERCENT Structured Best 0.0367816
+
+GW 1182546        GRB Structured Best 1878137        GWGRB Structured Best 367816        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.03240719181140808        GRB STANDARD DEVIATION Structured Best 0.03912196822239675        GWGRB STANDARD DEVIATION Structured Best 0.01889331815787518
+
+GW Volume 0.0451 +/- 0.0124
+GRB Volume Structured Best 0.0717 +/- 0.0149
+GWGRB Volume Structured Best 0.014 +/- 0.0072
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 31.1
+
+---------------------------------------------late high---------------------------------------------
+---------------------------------------------1e+50---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.1409824        GRB PERCENT Off Axis 0.204617        GWGRB PERCENT Off Axis 0.0522228
+
+GW 1409824        GRB Off Axis 2046170        GWGRB Off Axis 522228        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03478690833532664        GRB STANDARD DEVIATION Off Axis 0.04037525990771669        GWGRB STANDARD DEVIATION Off Axis 0.02230448688181449
+
+GW Volume 0.0538 +/- 0.0133
+GRB Volume Off Axis 0.0781 +/- 0.0154
+GWGRB Volume Off Axis 0.0199 +/- 0.0085
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 37.04
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.1409824        GRB PERCENT Structured Simulation 0.1790328        GWGRB PERCENT Structured Simulation 0.0519117
+
+GW 1409824        GRB Structured Simulation 1790328        GWGRB Structured Simulation 519117        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.03478690833532664        GRB STANDARD DEVIATION Structured Simulation 0.0383273689943833        GWGRB STANDARD DEVIATION Structured Simulation 0.022232843860009576
+
+GW Volume 0.0538 +/- 0.0133
+GRB Volume Structured Simulation 0.0683 +/- 0.0146
+GWGRB Volume Structured Simulation 0.0198 +/- 0.0085
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 36.82
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.1409824        GRB PERCENT Structured Best 0.1875157        GWGRB PERCENT Structured Best 0.04315
+
+GW 1409824        GRB Structured Best 1875157        GWGRB Structured Best 431500        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.03478690833532664        GRB STANDARD DEVIATION Structured Best 0.03905844990695942        GWGRB STANDARD DEVIATION Structured Best 0.020323622474744438
+
+GW Volume 0.0538 +/- 0.0133
+GRB Volume Structured Best 0.0716 +/- 0.0149
+GWGRB Volume Structured Best 0.0165 +/- 0.0078
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 30.61
+
+---------------------------------------------3rd generation---------------------------------------------
+---------------------------------------------1e+50---------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GW PERCENT 0.8175848        GRB PERCENT Off Axis 0.2034551        GWGRB PERCENT Off Axis 0.1689386
+
+GW 8175848        GRB Off Axis 2034551        GWGRB Off Axis 1689386        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.038686919956727676        GRB STANDARD DEVIATION Off Axis 0.04027599167674716        GWGRB STANDARD DEVIATION Off Axis 0.03738793132300423
+
+GW Volume 0.3121 +/- 0.0148
+GRB Volume Off Axis 0.0777 +/- 0.0154
+GWGRB Volume Off Axis 0.0645 +/- 0.0143
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Off Axis 20.66
+    
+---------------------------------------------Structured Simulation---------------------------------------------
+GW PERCENT 0.8175848        GRB PERCENT Structured Simulation 0.177955        GWGRB PERCENT Structured Simulation 0.1489656
+
+GW 8175848        GRB Structured Simulation 1779550        GWGRB Structured Simulation 1489656        TOTAL 10000000
+
+GW STANDARD DEVIATION 0.038686919956727676        GRB STANDARD DEVIATION Structured Simulation 0.038185632853539035        GWGRB STANDARD DEVIATION Structured Simulation 0.03546726090221919
+
+GW Volume 0.3121 +/- 0.0148
+GRB Volume Structured Simulation 0.0679 +/- 0.0146
+GWGRB Volume Structured Simulation 0.0569 +/- 0.0135
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Simulation 18.22
+
+---------------------------------------------Structured Best---------------------------------------------
+GW PERCENT 0.8175848        GRB PERCENT Structured Best 0.1864049        GWGRB PERCENT Structured Best 0.1511203
+
+GW 8175848        GRB Structured Best 1864049        GWGRB Structured Best 1511203        TOTAL 10000000
+
+GW STANDARD DEVIATION Structured Best 0.038686919956727676        GRB STANDARD DEVIATION Structured Best 0.03891487375880899        GWGRB STANDARD DEVIATION Structured Best 0.03572898953956347
+
+GW Volume 0.3121 +/- 0.0148
+GRB Volume Structured Best 0.0712 +/- 0.0149
+GWGRB Volume Structured Best 0.0577 +/- 0.0136
+All volumes in Gpc^3
+
+GWGRB/GW, percent detection Structured Best 18.48
+
+
+-----------------------------------------------_FERMI GBM---------------------------------------------
+---------------------------------------------Off Axis---------------------------------------------
+GRB Off Axis 2620966        TOTAL 10000000
+
+GRB STANDARD DEVIATION Off Axis 0.04412500128720647
+
+GRB Volume Off Axis 0.0088 +/- 0.0015
+All volumes in Gpc^3
+
+GRB percent detection Off Axis 26.21
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GRB PERCENT Structured Simulation 0.2620966
+
+GRB Structured Simulation 2620966        TOTAL 10000000
+
+GRB STANDARD DEVIATION Structured Simulation 0.04412500128720647
+
+GRB Volume Structured Simulation 0.0088 +/- 0.0015
+All volumes in Gpc^3
+
+GRB percent detection Structured Simulation 26.21
+
+---------------------------------------------Structured Best---------------------------------------------
+GRB PERCENT Structured Best 0.2421254
+
+GRB Structured Best         TOTAL 10000000
+
+GRB Volume Structured Best 0.0081 +/- 0.0014
+All volumes in Gpc^3
+
+GRB percent detection Structured Best 24.21
+
+
+1e51
+---------------------------------------------Off Axis---------------------------------------------
+GRB Off Axis 2588944        TOTAL 10000000
+
+GRB STANDARD DEVIATION Off Axis 0.04381539508584366
+
+GRB Volume Off Axis 0.0087 +/- 0.0015
+All volumes in Gpc^3
+
+GRB percent detection Off Axis 25.89
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GRB PERCENT Structured Simulation 0.2588944
+
+GRB Structured Simulation 2588944        TOTAL 10000000
+
+GRB STANDARD DEVIATION Structured Simulation 0.04381539508584366
+
+GRB Volume Structured Simulation 0.0087 +/- 0.0015
+All volumes in Gpc^3
+
+GRB percent detection Structured Simulation 25.89
+
+---------------------------------------------Structured Best---------------------------------------------
+GRB PERCENT Structured Best 0.2220205
+
+GRB Structured Best         TOTAL 10000000
+
+GRB Volume Structured Best 0.0074 +/- 0.0014
+All volumes in Gpc^3
+
+GRB percent detection Structured Best 22.2
+
+
+1e50
+---------------------------------------------Off Axis---------------------------------------------
+GRB Off Axis 2462471        TOTAL 10000000
+
+GRB STANDARD DEVIATION Off Axis 0.043147089801097056
+
+GRB Volume Off Axis 0.0083 +/- 0.0014
+All volumes in Gpc^3
+
+GRB percent detection Off Axis 24.62
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GRB PERCENT Structured Simulation 0.2291725
+
+GRB Structured Simulation 2291725        TOTAL 10000000
+
+GRB STANDARD DEVIATION Structured Simulation 0.042090212159238076
+
+GRB Volume Structured Simulation 0.0077 +/- 0.0014
+All volumes in Gpc^3
+
+GRB percent detection Structured Simulation 22.92
+
+---------------------------------------------Structured Best---------------------------------------------
+GRB PERCENT Structured Best 0.2036423
+
+GRB Structured Best         TOTAL 10000000
+
+GRB Volume Structured Best 0.0068 +/- 0.0014
+All volumes in Gpc^3
+
+GRB percent detection Structured Best 20.36
+
+-----------------------------------------------SWIFT-BAT--------------------------------------------------
+-------------------------------------------------------8e51-------------------------------------------
+
+---------------------------------------------Off Axis---------------------------------------------
+GRB Off Axis 1937456        TOTAL 10000000
+
+GRB STANDARD DEVIATION Off Axis 0.039507848452435
+
+GRB Volume Off Axis 0.0065 +/- 0.0013
+All volumes in Gpc^3
+
+GRB percent detection Off Axis 19.37
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GRB PERCENT Structured Simulation 0.1937456
+
+GRB Structured Simulation 1937456        TOTAL 10000000
+
+GRB STANDARD DEVIATION Structured Simulation 0.039507848452435
+
+GRB Volume Structured Simulation 0.0065 +/- 0.0013
+All volumes in Gpc^3
+
+GRB percent detection Structured Simulation 19.37
+
+---------------------------------------------Structured Best---------------------------------------------
+GRB PERCENT Structured Best 0.1793192
+
+GRB Structured Best         TOTAL 10000000
+
+GRB Volume Structured Best 0.006 +/- 0.0013
+All volumes in Gpc^3
+
+GRB percent detection Structured Best 17.93
+
+---------------------------------------------1e51-------------------------------------------------
+---------------------------------------------Off Axis---------------------------------------------
+GRB Off Axis 1903124        TOTAL 10000000
+
+GRB STANDARD DEVIATION Off Axis 0.03905902792333721
+
+GRB Volume Off Axis 0.0064 +/- 0.0013
+All volumes in Gpc^3
+
+GRB percent detection Off Axis 19.03
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GRB PERCENT Structured Simulation 0.1903124
+
+GRB Structured Simulation 1903124        TOTAL 10000000
+
+GRB STANDARD DEVIATION Structured Simulation 0.03905902792333721
+
+GRB Volume Structured Simulation 0.0064 +/- 0.0013
+All volumes in Gpc^3
+
+GRB percent detection Structured Simulation 19.03
+
+---------------------------------------------Structured Best---------------------------------------------
+GRB PERCENT Structured Best 0.163961
+
+GRB Structured Best         TOTAL 10000000
+
+GRB Volume Structured Best 0.0055 +/- 0.0012
+All volumes in Gpc^3
+
+GRB percent detection Structured Best 16.4
+
+
+---------------------------------------------1e50-------------------------------------------
+---------------------------------------------Off Axis---------------------------------------------
+GRB Off Axis 1770842        TOTAL 10000000
+
+GRB STANDARD DEVIATION Off Axis 0.03810869498009973
+
+GRB Volume Off Axis 0.0059 +/- 0.0013
+All volumes in Gpc^3
+
+GRB percent detection Off Axis 17.71
+
+---------------------------------------------Structured Simulation---------------------------------------------
+GRB PERCENT Structured Simulation 0.1649731
+
+GRB Structured Simulation 1649731        TOTAL 10000000
+
+GRB STANDARD DEVIATION Structured Simulation 0.037059884116658386
+
+GRB Volume Structured Simulation 0.0055 +/- 0.0012
+All volumes in Gpc^3
+
+GRB percent detection Structured Simulation 16.5
+
+---------------------------------------------Structured Best---------------------------------------------
+GRB PERCENT Structured Best 0.1469273
+
+GRB Structured Best         TOTAL 10000000
+
+GRB Volume Structured Best 0.0049 +/- 0.0012
+All volumes in Gpc^3
+
+GRB percent detection Structured Best 14.69
