@@ -277,7 +277,7 @@ possenergy = [7.97E+51,
 1.23E+48,
 1.13E+48
 ]
-energyinitial = 1e51
+energyinitial = 8e51
 poss_differencediv = possenergy[0] / energyinitial
 print(poss_differencediv)
 for i in range(0,len(possenergy)):
@@ -361,7 +361,7 @@ trials = 100 # input("Enter the number of points you want to test: ") + 1
 iterations = 100
 GRBFINALnum_off, GWGRBFINALnum_off, GRBFINALnum_struc_best, GWGRBFINALnum_struc_best, GRBFINALnum_struc_sim, GWGRBFINALnum_struc_sim = 0, 0, 0, 0, 0, 0
 GWPERCENTMEAN, GWFINALnum = [], 0
-distance = 450
+distance = 100
 for q in range(0,iterations):
     RHO_PLUS_LOUIS, RHO_CROSS_LOUIS, RHO_PLUS_WASH, RHO_CROSS_WASH, RHO_PLUS_VIRGO, RHO_CROSS_VIRGO = [], [], [], [], [], []
     a_AP_LOUIS, a_AP_WASH, a_AP_VIRGO, b_AP_LOUIS, b_AP_WASH, b_AP_VIRGO = [], [], [], [], [], []
@@ -458,7 +458,7 @@ plt.yscale('log')
 plt.xlim(0, math.pi)
 axes = plt.gca()
 axes.set_xlim([0,38])
-axes.set_ylim([1e-11,1e-3])
+axes.set_ylim([1e-9,1e-1])
 
 GBM_SENS, SWIFT_SENS = [], []
 for u in range(0, trials):

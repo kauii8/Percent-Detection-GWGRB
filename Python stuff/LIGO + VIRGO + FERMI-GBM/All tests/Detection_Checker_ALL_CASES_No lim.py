@@ -345,14 +345,13 @@ def delta_function(beta, thetaobs, thetaj):
 '''------FUNCTION------'''
 '''------CREATE POINTS------'''
 #energyinitial = float(input('Please enter inital energy '))
-for i in [1]:
-    energyinitial = 1e50
-    # if i == 0:
-    #     energyinitial = 8e51
-    # elif i == 1:
-    #     energyinitial = 1e51
-    # elif i == 2 :
-    #     energyinitial = 1e50
+for i in [0]:
+    if i == 0:
+        energyinitial = 8e51
+    elif i == 1:
+        energyinitial = 1e51
+    elif i == 2 :
+        energyinitial = 1e50
 
     poss_differencediv = possenergy[0] / energyinitial
     for i in range(0,len(possenergy)):
@@ -361,6 +360,7 @@ for i in [1]:
     for x in [0,1,2,3,7]:
         #stage = input('Enter what stage (design, late low, late mid, late high, mid low, mid mid, mid high, 3rd generation) ')
         #stage = 'design
+        #stage = 'design'
         if x == 0: #since we have different sensitivities we need different Dvs
             stage  = 'design'
         elif x == 1:
@@ -379,7 +379,7 @@ for i in [1]:
             stage = '3rd generation'
 
         if stage == 'design':
-            Dv_LOUIS, Dv_WASH, Dv_VIRGO = 190, 190, 145
+            Dv_LOUIS, Dv_WASH, Dv_VIRGO = 190,190,170
         elif stage == 'mid low':
             Dv_LOUIS, Dv_WASH, Dv_VIRGO = 80, 80, 65
         elif stage == 'mid mid':
@@ -397,7 +397,7 @@ for i in [1]:
             Dv_LOUIS, Dv_VIRGO = 1, 1
             
         trials = 100 # input("Enter the number of points you want to test: ") + 1
-        iterations = 100000
+        iterations = 100
         GRBFINALnum_off, GWGRBFINALnum_off, GRBFINALnum_struc_best, GWGRBFINALnum_struc_best, GRBFINALnum_struc_sim, GWGRBFINALnum_struc_sim = 0, 0, 0, 0, 0, 0
         GWPERCENTMEAN, GWFINALnum = [], 0
         GRBPERCENTMEAN_off, GWGRBPERCENTMEAN_off, GRBPERCENTMEAN_struc_best, GWGRBPERCENTMEAN_struc_best, GRBPERCENTMEAN_struc_sim, GWGRBPERCENTMEAN_struc_sim = [], [], [], [], [], []

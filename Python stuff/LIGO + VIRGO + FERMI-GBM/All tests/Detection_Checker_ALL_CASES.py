@@ -357,7 +357,7 @@ for i in range (0, 3):
     for i in range(0,len(possenergy)):
         possenergy[i] /= poss_differencediv
 
-    for x in range(0,8):
+    for x in (0,1,2,3,7):
         #stage = input('Enter what stage (design, late low, late mid, late high, mid low, mid mid, mid high, 3rd generation) ')
         #stage = 'design
         if x == 0: #since we have different sensitivities we need different Dvs
@@ -396,7 +396,7 @@ for i in range (0, 3):
             Dv_LOUIS, Dv_VIRGO = 1, 1
             
         trials = 100 # input("Enter the number of points you want to test: ") + 1
-        iterations = 100000
+        iterations = 100
         GRBFINALnum_off, GWGRBFINALnum_off, GRBFINALnum_struc_best, GWGRBFINALnum_struc_best, GRBFINALnum_struc_sim, GWGRBFINALnum_struc_sim = 0, 0, 0, 0, 0, 0
         GWPERCENTMEAN, GWFINALnum = [], 0
         GRBPERCENTMEAN_off, GWGRBPERCENTMEAN_off, GRBPERCENTMEAN_struc_best, GWGRBPERCENTMEAN_struc_best, GRBPERCENTMEAN_struc_sim, GWGRBPERCENTMEAN_struc_sim = [], [], [], [], [], []
