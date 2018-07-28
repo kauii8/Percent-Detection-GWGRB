@@ -36,6 +36,8 @@ import math
 import matplotlib.pyplot as plt
 import csv
 
+import time
+
 """ Functions """
 def polarHalfAngle(thetaT):
 
@@ -88,7 +90,8 @@ global SMOOTHNESS
 SMOOTHNESS = 1
 
 global SCALING_ENERGY
-SCALING_ENERGY = 7.668789593947251e+18 #1.5568789593947251e+18 #Normalization
+#(8e51/2.4041067872429013e+53)  for gamma= 100
+SCALING_ENERGY = 7.668789593947251e+18 
 
 global R_SUB_ZERO   
 R_SUB_ZERO = 1e13 #cm/s
@@ -107,13 +110,13 @@ global gamma
 gamma = 100
 
 global thetaHalf 
-thetaHalf = math.radians(15) #NOTE IN RADIANS ALREADY
+thetaHalf = math.radians(10) #NOTE IN RADIANS ALREADY
 
 global beta 
 beta = math.sqrt((-1 * ((1/gamma) ** 2)) + 1)
 
 global frequencySubZero
-frequencySubZero = .84005e4#12505000 #Withiin integral limit value doesn't matter so much
+frequencySubZero = 8.4005e3 #Withiin integral limit value doesn't matter so much
 
 global distance
 distance = 100 * 3.086e+24 #cm
@@ -124,28 +127,41 @@ T_OBSERVER = T_SUB_ZERO + (R_SUB_ZERO / (SPEED_OF_LIGHT * beta))
 """ Variable Initializations """
 global thetaObs
 
-trials = 100
-thetaObs = np.linspace(0, math.radians(60), trials).tolist()
+trials = 500
+thetaObs = np.linspace(0, math.pi/2, trials).tolist()
+
 
 global i
 
 energy = []
+
+start_time = time.time()
 print("Progress")
 for i in range(0, len(thetaObs)): #Calculates the integral for every thetaObs
     tStart = T_SUB_ZERO + ((R_SUB_ZERO / (SPEED_OF_LIGHT * beta)) * (1 - (beta * math.cos(max(0, thetaObs[i] - thetaHalf))))) #Equation A.5
     tEnd = T_SUB_ZERO + ((R_SUB_ZERO / (SPEED_OF_LIGHT * beta)) * (1 - (beta * math.cos(thetaObs[i] + thetaHalf)))) #Equation A.6
 
-    spectralFluxIntegrated = integrate.dblquad(spectralFlux, tStart, tEnd, lambda frequency: frequencyMin, lambda frequency: frequencyMax) #Spectral   flux integral
+    spectralFluxIntegrated = integrate.dblquad(spectralFlux, tStart, tEnd, lambda frequency: frequencyMin, lambda frequency: frequencyMax, epsabs=.01, epsrel=.01) #Spectral   flux integral
 
     energy.append(energyIso(spectralFluxIntegrated))
     
     printProgressBar(i, trials)
 
+print("--- %s seconds ---" % (time.time() - start_time))
+
 for i in range(0,len(thetaObs)):
     thetaObs[i] = math.degrees(thetaObs[i])
 
+differenceDiv = 1e51/energy[0]
+for i in range(0, len(energy)):
+    energy[i] *= differenceDiv
+    energy[i] = math.fabs(energy[i])
+
+
+
+
 """ CSV file """
-path = "/media/n/OS/Users/Nihar/Documents/Everything/Research/LIGO/Percent-Detection-GWGRB/Python stuff/LIGO + VIRGO + FERMI-GBM/Graph Testing/Off-Axis/Nakamura.csv"
+path = "/media/n/OS/Users/Nihar/Documents/Everything/Research/LIGO/Percent-Detection-GWGRB/Python stuff/LIGO + VIRGO + FERMI-GBM/Graph_Testing/Off-Axis/Nakamura.csv"
 
 file = open(path, newline = '')
 reader = csv.reader(file)
@@ -167,3 +183,13 @@ plt.ylabel(r'$E_{iso}(\theta_{obs})$' + "[erg] (10keV - 25MeV)")
 plt.grid(axis = "both")
 
 plt.show()
+
+
+
+thetaObs = [math.radians(i) for i in thetaObs]
+
+print('----------------------------------')
+
+
+
+print(energy)

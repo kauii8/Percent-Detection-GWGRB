@@ -1,5 +1,6 @@
 from AntennaPowerPatterns import *
 from conversions import *
+from OffAxisLists import *
 import csv
 import random
 
@@ -49,7 +50,7 @@ def main(inputEnergy, sensitivityGW, modelGRB, trials, iterations, minDistance, 
     lambdITALY = math.radians(DMS_TO_DEGREES(10, 30, 16))
     chiITALY = COMPASS_TO_ANGLE(math.radians(333.5))
 
-    # Converts gamma factor to beta
+    # Converts gamma factor to beta, uneeded for most recent model
     beta = math.sqrt((-1 * ((1/gamma) ** 2)) + 1)
 
     for initialEnergy in inputEnergy:  # list of our energies
@@ -101,6 +102,8 @@ def main(inputEnergy, sensitivityGW, modelGRB, trials, iterations, minDistance, 
 
             # Iterations
             for i in range(0, iterations):
+
+                #List initializations
                 fPlusLOUIS, fCrossLOUIS, fPlusWASH, fCrossWASH, fPlusITALY, fCrossITALY = [], [], [], [], [], []
 
                 a_AP_LOUIS, a_AP_WASH, a_AP_ITALY, b_AP_LOUIS, b_AP_WASH, b_AP_ITALY = [], [], [], [], [], []
@@ -116,6 +119,8 @@ def main(inputEnergy, sensitivityGW, modelGRB, trials, iterations, minDistance, 
                 fluenceOff, testGRBBoolOff = [], []
 
                 realThetaList, realEnergyList, fluenceStrucSim, testGRBBoolStrucSim = [], [], [], []
+
+                realThetaOffList, realEnergyOffList = [], []
 
                 fluenceStrucBest, testGRBBoolStrucBest, energyStrucBest = [], [], []
 
@@ -206,21 +211,46 @@ def main(inputEnergy, sensitivityGW, modelGRB, trials, iterations, minDistance, 
                         testGWBool.append(False)
 
                     # Off axis
+                    
+                    # Old model 
+                    # if math.degrees(thetaObs[j]) > thetaObsLimit:
+                    #     fluenceOff.append(0)
+                    # else:
+                    #     FOn = (initialEnergy)/((4 * math.pi *
+                    #                             ((((distance[j] * 3.086e+24) ** 2)))))
+                    #     deltaobs = delta_function(
+                    #         beta, thetaObs[j], math.radians(thetaj))
+                    #     deltazero = delta_function(beta, 0, 0)
+
+                    #     if math.degrees(thetaObs[j]) < thetaj:
+                    #         eta = 1
+                    #     else:
+                    #         eta = deltazero/deltaobs
+
+                    previousDifference = 1
+                    realtheta = 0
+                    thetanumber = 0
+
                     if math.degrees(thetaObs[j]) > thetaObsLimit:
-                        fluenceOff.append(0)
+                        realEnergyOffList.append(thetaObsLimit)
+                        realEnergyOffList.append(0)
                     else:
-                        FOn = (initialEnergy)/((4 * math.pi *
-                                                ((((distance[j] * 3.086e+24) ** 2)))))
-                        deltaobs = delta_function(
-                            beta, thetaObs[j], math.radians(thetaj))
-                        deltazero = delta_function(beta, 0, 0)
+                        # Sorter
+                        for k in range(0, len(thetaOffList)):
 
-                        if math.degrees(thetaObs[j]) < thetaj:
-                            eta = 1
-                        else:
-                            eta = deltazero/deltaobs
+                            thetaTemp = thetaOffList[k]
+                            difference = math.fabs(
+                                thetaTemp - math.degrees(thetaObs[j]))
+                            if previousDifference > difference:
+                                previousDifference = difference
+                                thetanumber = k
+                                realtheta = thetaTemp
+                        realThetaOffList.append(realtheta)
+                        realEnergyOffList.append(
+                            energyOffList[thetanumber])
 
-                        fluenceOff.append((eta) * FOn)
+                        
+                    fluenceOff.append(realEnergyOffList[j] / (4 * math.pi * (distance[j] ** 2)))
 
                     if fluenceOff[j] > 2.5e-8 and theta[j] < gbmTheta[j] and phi[j] < gbmPhi[j]:
                         testGRBBoolOff.append(True)
@@ -238,18 +268,19 @@ def main(inputEnergy, sensitivityGW, modelGRB, trials, iterations, minDistance, 
                     thetanumber = 0
 
                     if math.degrees(thetaObs[j]) > thetaObsLimit:
+                        realThetaList.append(thetaObsLimit)
                         realEnergyList.append(0)
                     else:
                         # Sorter
                         for k in range(0, len(possibleThetaMarguttiTuple)):
 
-                            thetatemp = possibleThetaMarguttiTuple[k]
+                            thetaTemp = possibleThetaMarguttiTuple[k]
                             difference = math.fabs(
-                                thetatemp - math.degrees(thetaObs[j]))
+                                thetaTemp - math.degrees(thetaObs[j]))
                             if previousDifference > difference:
                                 previousDifference = difference
                                 thetanumber = k
-                                realtheta = thetatemp
+                                realtheta = thetaTemp
                         realThetaList.append(realtheta)
                         realEnergyList.append(
                             possibleEnergyMarguttiTuple[thetanumber])
@@ -337,9 +368,10 @@ def main(inputEnergy, sensitivityGW, modelGRB, trials, iterations, minDistance, 
             GWGRBSD_struc_best = uncertaintyAverage(
                 finalGWGRBPercentMeanStrucBest, GWGRBPERCENT_struc_best, trials, iterations)
 
-        volumeGW = volumeSphere(GWPERCENT, maxDistance, 4)
-        print(volumeGW)
-        print(GWSD)
+            volumeGW = volumeSphere(GWPERCENT, maxDistance, 4)
+
+            print('GWGRBPERCENT {} {}'.format(stage, GWGRBPERCENT_off))
+            print('GW Volume {} {}'.format(stage, volumeGW))
 
 # volume
 

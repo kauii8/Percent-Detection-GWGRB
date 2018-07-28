@@ -8,11 +8,11 @@ main(
     100,  # Iterations
     0,  # Minimum Distance
     450,  # Maximum Distance
-    10,  # Jet Opening Half Angle
+    10,  # Jet Opening Half Angle (do not change for now)
     1.9,  # Alpha Best Fit
     9,  # Critical Angle Best Fit
     100,  # Gamma Factor
-    38.49856821  # Limit past (input 90 for no limit)
+    90 #38.49856821  # Limit past (input 90 for no limit)
 )
 
 
